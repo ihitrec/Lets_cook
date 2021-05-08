@@ -19,3 +19,22 @@ This is the third project in Code Institute Full Stack Developer program based o
 
 #### Strategy
 
+
+
+
+## Deployment
+
+Deployment instructions assume that you have already set up your repository and basic flask application. The website is deployed on the Heroku cloud platform using the following steps:
+1. Create the necessary files for deployment
+    - Create requirements file using `pip3 freeze > requirements.txt` which will contain the required dependencies.
+    - Create Procfile using `echo web: python app.py > Procfile`.
+    - Push both files to GitHub
+2.	Log in to Heroku and create a new app
+3.	Connect the app to your project
+    - Go to deployment method section and choose the method. If using GitHub, select that option, otherwise use the Heroku CLI method.
+4.	Following the GitHub method, search for the desired repository and connect to it
+5.	Enter configuration variables
+    - Go to the settings tab and select Reveal Config Vars. Enter the variables defined in the env.py file (IP, PORT and SECRET_KEY).
+6.	Deploy and preview
+    - Go back to the deployment tab and enable automatic deployment.
+    - Finally, press deploy branch and preview your website.
