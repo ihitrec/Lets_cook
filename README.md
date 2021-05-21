@@ -49,6 +49,36 @@ The footer will be simple with a small about section revealing a brief descripti
 [Color palette](static/img/readme_images/palette.png)
 >The color palette is a general idea for the colors selected from the hero image. The shades and combinations can change as the image I created is just a guide of which colors could work well together.
 
+## Technologies used
+
+##### Languages, frameworks and more
+![HTML5 icon](static/img/readme_images/html-icon.png) HTML5 - webpage markup language for basic structure
+
+![CSS3 icon](static/img/readme_images/css-icon.png) CSS3 - html document styling language 
+
+![JavaScript icon](static/img/readme_images/javascript-icon.png) JavaScript - behavior of elements on the website 
+
+![jQuery icon](static/img/readme_images/jquery-icon.png) jQuery - JavaScript library
+
+![Python icon](static/img/readme_images/python.png) Python - backend programming language working together with Flask, MongoDB and Heroku
+
+![Flask icon](static/img/readme_images/flask.png) Flask - lightweight Python framework for web applications
+
+![MongoDB icon](static/img/readme_images/mongodb.png) MongoDB - database program
+
+![Heroku icon](static/img/readme_images/heroku.png) Heroku - cloud deployment platform
+
+##### Repository, coding environment and version control
+- [Github](https://www.gitpod.io/) - hosting platform for managing repositories and more
+- [Gitpod](https://www.gitpod.io/) - coding environment
+- [Git](https://git-scm.com/) - used for version control
+
+#####  Resources
+- [Google Fonts](https://fonts.google.com/) - source for all fonts on the website
+- [Envato Elements](https://elements.envato.com/) - hero image source
+- [Font Awesome](https://fontawesome.com/) - used for icons
+- [BBC Good Food](https://www.bbcgoodfood.com/) - recipe content
+
 
 ## Deployment
 
