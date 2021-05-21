@@ -1,3 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=KoHo:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+body {
+    font-family: "KoHo", sans-serif;
+}
+
+.pattern-backg {
+    background-image: url("../img/pattern.png");
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: -1;
+    opacity: .25;
+}
+
+/* START -------------------------------------------------- Nav Style */
 nav ul {
     margin: 0;
     padding-top: 10px;
@@ -20,18 +36,80 @@ li a {
     margin-top: 5px;
 }
 
-.pattern-backg {
-    background-image: url("../img/pattern.png");
-    width: 100%;
-    height: 100%;
-    position: fixed;
-    z-index: -1;
-    opacity: .25;
+/* Nav Style ---------------------------------------------------- END */
+
+
+/* START -------------------------------------------------- Hero section style */
+.search {
+    background-image: url(../img/hero.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    height: 62vh;
 }
 
-.hero {
-    width: 57%;
-    display: block;
+.spinnin-food {
     margin: 0 auto;
-    opacity: .7;
+    padding-top: 169px;
+}
+
+.spinnin-food h1 {
+    font-weight: 600;
+    text-align: center;
+    padding-left: 9%;
+}
+
+.food-window {
+    display: inline-block;
+    width: 150px;
+    height: 25px;
+    overflow: hidden;
+}
+
+.big-span {
+    margin-left: 10px;
+    font-size: 20px;
+    display: inline-block;
+    animation-name: rotate-food;
+    animation-duration: 2.6s;
+    transform: translate(0, -150px);
+    line-height: 25px;
+    animation-timing-function: linear;
+    margin-top: 2px;
+}
+
+@keyframes rotate-food {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    100% {
+        transform: translate(0, -150px);
+    }
+}
+
+
+.nxt-meal {
+    transform: translate(-150px, 105px);
+    display: inline-block;
+    font-weight: 400;
+    animation-name: move-up;
+    animation-duration: 1.3s;
+    animation-delay: 2.6s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes move-up {
+    100% {
+        transform: translate(-150px, 0);
+    }
+}
+
+.spinnin-food input {
+    width: 40%;
+    margin: 0 auto;
+    border-radius: 20px;
+    display: block;
+    border: none;
+    width: 334px;
 }
