@@ -31,7 +31,7 @@ li a {
 }
 
 .logo {
-    width: 100px;
+    width: 145px;
     margin-left: 15px;
     margin-top: 5px;
 }
@@ -49,12 +49,20 @@ li a {
     border-radius: 30px;
 }
 
-.hide-hr {
+.close-class .hr1 {
     display: none;
 }
 
-.hr-margin {
+.close-class hr {
     margin: -4px 0 !important;
+}
+
+.close-class .hr2 {
+    transform: rotate(45deg);
+}
+
+.close-class .hr3 {
+    transform: rotate(-45deg);
 }
 
 .navbar-toggler:focus {
