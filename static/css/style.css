@@ -36,6 +36,31 @@ li a {
     margin-top: 5px;
 }
 
+.close {
+    width: 30px;
+    margin: 0 auto;
+}
+
+.close hr {
+    height: 4px;
+    margin: 6px 0;
+    color: black;
+    opacity: 1;
+    border-radius: 30px;
+}
+
+.hide-hr {
+    display: none;
+}
+
+.hr-margin {
+    margin: -4px 0 !important;
+}
+
+.navbar-toggler:focus {
+    box-shadow: 0 0 0 0;
+}
+
 /* Nav Style ---------------------------------------------------- END */
 
 
@@ -67,7 +92,6 @@ li a {
 }
 
 .big-span {
-    margin-left: 10px;
     font-size: 20px;
     display: inline-block;
     animation-name: rotate-food;
@@ -113,3 +137,5 @@ li a {
     border: none;
     width: 334px;
 }
+
+/* Hero section style ---------------------------------------------------- END */
