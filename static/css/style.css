@@ -13,7 +13,11 @@ body {
     opacity: .25;
 }
 
-/* START -------------------------------------------------- Nav Style */
+/* START ----------------------------------------------------------- Nav Style */
+.navbar {
+    justify-content: center;
+}
+
 nav ul {
     margin: 0;
     padding-top: 10px;
@@ -38,7 +42,8 @@ li a {
 
 .close {
     width: 30px;
-    margin: 0 auto;
+    margin: 65px auto 0;
+
 }
 
 .close hr {
@@ -69,7 +74,7 @@ li a {
     box-shadow: 0 0 0 0;
 }
 
-/* Nav Style ---------------------------------------------------- END */
+/* Nav Style ------------------------------------------------------------- END */
 
 
 /* START -------------------------------------------------- Hero section style */
@@ -78,18 +83,19 @@ li a {
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
-    height: 62vh;
+    height: 64vw;
+    margin-top: 20px;
 }
 
 .spinnin-food {
     margin: 0 auto;
-    padding-top: 169px;
+    padding-top: 21vw;
 }
 
 .spinnin-food h1 {
     font-weight: 600;
     text-align: center;
-    padding-left: 9%;
+    margin-left: 144px;
 }
 
 .food-window {
@@ -100,14 +106,16 @@ li a {
 }
 
 .big-span {
-    font-size: 20px;
+    font-size: 30px;
     display: inline-block;
     animation-name: rotate-food;
     animation-duration: 2.6s;
-    transform: translate(0, -150px);
+    transform: translate(0, -154px);
     line-height: 25px;
     animation-timing-function: linear;
     margin-top: 2px;
+    color: black;
+    /* text-shadow: 2px 2px #f6f6f6; */
 }
 
 @keyframes rotate-food {
@@ -116,13 +124,13 @@ li a {
     }
 
     100% {
-        transform: translate(0, -150px);
+        transform: translate(0, -154px);
     }
 }
 
 
 .nxt-meal {
-    transform: translate(-150px, 105px);
+    transform: translate(-150px, 75px);
     display: inline-block;
     font-weight: 400;
     animation-name: move-up;
@@ -143,7 +151,64 @@ li a {
     border-radius: 20px;
     display: block;
     border: none;
-    width: 334px;
+    max-width: 334px;
 }
 
 /* Hero section style ---------------------------------------------------- END */
+
+/* START --------------------------------------------------------- Media query */
+
+
+@media only screen and (min-width: 768px) {
+    .logo {
+        width: 100px;
+        margin-left: 15px;
+    }
+
+    li a {
+        font-size: 3.5vw;
+    }
+
+    nav li {
+        padding-right: 4vw;
+    }
+}
+
+@media only screen and (min-width: 900px) {
+    .search {
+        height: 586px;
+    }
+
+    .spinnin-food {
+        padding-top: 169px;
+    }
+}
+
+@media only screen and (min-width: 1028px) {
+    .logo {
+        width: 145px;
+        margin-left: 0;
+    }
+
+    li a {
+        font-size: 35px;
+    }
+
+    nav li {
+        padding-right: 6vw;
+    }
+}
+
+@media only screen and (min-width: 1500px) {
+    li a {
+        font-size: 45px;
+    }
+}
+
+@media only screen and (min-width: 2000px) {
+    li a {
+        font-size: 2vw;
+    }
+}
+
+/* Media query ----------------------------------------------------------- END */
