@@ -1,6 +1,12 @@
 $(document).ready(function () {
 
-    // Animate nav dropdown and disable rapid clicks.
+    // Calculate food-window position from top
+    if (window.innerWidth < 555) {
+        let howHigh = $(".search").height() * 0.43 + 137
+        $(".food-window").css("top", howHigh);
+    }
+
+    // Animate nav dropdown and disable rapid clicks
     $(".close").click(menuToggle);
 
     function menuToggle() {

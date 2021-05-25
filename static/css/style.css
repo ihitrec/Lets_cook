@@ -35,7 +35,7 @@ li a {
 }
 
 .logo {
-    width: 145px;
+    width: 110px;
     margin-left: 15px;
     margin-top: 5px;
 }
@@ -49,7 +49,7 @@ li a {
 .close hr {
     height: 4px;
     margin: 6px 0;
-    color: black;
+    color: #464950;
     opacity: 1;
     border-radius: 30px;
 }
@@ -72,6 +72,10 @@ li a {
 
 .navbar-toggler:focus {
     box-shadow: 0 0 0 0;
+}
+
+.navbar-nav {
+    text-align: center;
 }
 
 /* Nav Style ------------------------------------------------------------- END */
@@ -130,18 +134,23 @@ li a {
 
 
 .nxt-meal {
-    transform: translate(-150px, 75px);
+    transform: translate(-150px, 85px);
     display: inline-block;
     font-weight: 400;
     animation-name: move-up;
     animation-duration: 1.3s;
     animation-delay: 2.6s;
     animation-fill-mode: forwards;
+    border-radius: 30px;
+    background-color: #ffffff40;
+    padding: 0 4px;
 }
 
 @keyframes move-up {
     100% {
         transform: translate(-150px, 0);
+        background-color: transparent;
+        border-radius: none;
     }
 }
 
@@ -152,12 +161,53 @@ li a {
     display: block;
     border: none;
     max-width: 334px;
+    min-width: 162px;
 }
 
 /* Hero section style ---------------------------------------------------- END */
 
 /* START --------------------------------------------------------- Media query */
 
+@media only screen and (max-width: 555px) {
+    .food-window {
+        position: absolute;
+        top: 137px;
+    }
+
+    .food-window span {
+        padding-right: 26px;
+    }
+
+    .big-span {
+        font-size: 22px;
+    }
+
+    .spinnin-food h1 {
+        margin-left: 0;
+    }
+
+    .nxt-meal {
+        transform: translate(0, 72px);
+        display: inline-block;
+        font-weight: 400;
+        animation-name: move-up-sm;
+        animation-duration: 1.3s;
+        animation-delay: 2.6s;
+        animation-fill-mode: forwards;
+        border-radius: 30px;
+        background-color: #ffffff40;
+        padding: 0 4px;
+    }
+
+    @keyframes move-up-sm {
+
+        100% {
+            transform: translate(0, 0);
+            background-color: transparent;
+            border-radius: none;
+        }
+    }
+}
 
 @media only screen and (min-width: 768px) {
     .logo {
