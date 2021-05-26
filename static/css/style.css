@@ -172,13 +172,10 @@ li a {
     margin-top: 75px;
 }
 
+/* Headline style */
 .controls {
-    width: 30%;
     line-height: .85;
-}
-
-.carousel {
-    width: 70%;
+    background-color: #f6f6f6;
 }
 
 .headline {
@@ -209,6 +206,34 @@ li a {
     font-size: 26px;
     font-weight: 200;
     line-height: 32px;
+}
+
+/* Carousel style */
+.carousel {
+    overflow: hidden;
+    height: 600px;
+}
+
+.car-row {
+    position: relative;
+    flex-direction: row;
+    width: 4000px;
+    z-index: -1;
+    left: 0;
+}
+
+.arrow div {
+    font-size: 30px;
+    width: fit-content;
+}
+
+.left {
+    background-color: red;
+    margin-bottom: 20px;
+}
+
+.right {
+    background-color: blue;
 }
 
 /* Top 10 ---------------------------------------------------------------- END */
