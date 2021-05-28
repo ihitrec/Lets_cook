@@ -13,42 +13,69 @@ $(document).ready(function () {
         $(".close").unbind("click");
         this.classList.toggle("close-class");
         setTimeout(function () {
-            $(".close").click(menuToggle);
+            $(".close").click(menuToggle); //Check how long bootstrap animation lasts
         }, 350)
     }
 
     /* Carousel controls */
-    $(".right").click(moveLeft);
-
     let count = 0;
     let firstDiv = $(".car-row > div")[count];
     let count2 = 9;
     let lastCardOrder;
-    let currentLeft;
 
+    $(".right").click(moveLeft);
     // Move carousel left, change order of first card to last
     function moveLeft() {
+        $(".left").unbind("click");
         $(".right").unbind("click");
-        currentLeft = $(".car-row").css("left");
-        currentLeft = currentLeft.substring(0, currentLeft.length - 2);
         $(".car-row").animate({
-            left: currentLeft - 400 + "px"
-        }, 1000);
-        if (count === 10) {
-            count = 0;
-        }
+            left: "-400px"
+        }, 750);
         firstDiv = $(".car-row > div")[count];
-        count++;
         lastCardOrder = parseInt($(".car-row > div")[count2].style.order);
         setTimeout(function () {
             firstDiv.style.order = lastCardOrder + 1;
             $(".car-row").css("left", "0");
+            $(".left").click(moveRight);
             $(".right").click(moveLeft);
-        }, 1200)
+        }, 800)
+        if (count === 9) {
+            count = 0
+        } else {
+            count++;
+        }
         if (count2 === 9) {
-            count2 = 0;
+            count2 = 0
         } else {
             count2++;
+        }
+    }
+
+    $(".left").click(moveRight);
+    //Move carousel right, change order of last card to first
+    function moveRight() {
+        $(".left").unbind("click");
+        $(".right").unbind("click");
+        lastDiv = $(".car-row > div")[count2];
+        firstCardOrder = parseInt($(".car-row > div")[count].style.order);
+        lastDiv.style.order = firstCardOrder - 1;
+        $(".car-row").css("left", "-400px");
+        $(".car-row").animate({
+            left: "0px"
+        }, 750);
+        setTimeout(function () {
+            $(".left").click(moveRight);
+            $(".right").click(moveLeft);
+        }, 800)
+        if (count === 0) {
+            count = 9
+        } else {
+            count--;
+        }
+        if (count2 === 0) {
+            count2 = 9
+        } else {
+            count2--;
         }
     }
 });
