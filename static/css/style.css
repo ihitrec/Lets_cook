@@ -78,6 +78,48 @@ li a {
     text-align: center;
 }
 
+.dropdown-toggle {
+    user-select: none;
+}
+
+.dropdown-toggle::after {
+    border: 0;
+}
+
+.dropdown-toggle img {
+    width: 50px;
+    transform: rotate(170deg);
+    animation-fill-mode: forwards;
+
+}
+
+.original-position {
+    animation: original-position;
+    animation-duration: .4s;
+}
+
+@keyframes original-position {
+    0% {
+        transform: rotate(275deg);
+
+    }
+
+    100% {
+        transform: rotate(170deg);
+    }
+}
+
+.rotate-spatula {
+    animation: rotate-spatula;
+    animation-duration: .4s;
+}
+
+@keyframes rotate-spatula {
+    100% {
+        transform: rotate(275deg);
+    }
+}
+
 /* Nav Style ------------------------------------------------------------- END */
 
 
@@ -207,19 +249,6 @@ li a {
     line-height: 32px;
 }
 
-/* Carousel style */
-.carousel {
-    overflow: hidden;
-    height: 600px;
-}
-
-.car-row {
-    position: relative;
-    flex-direction: row;
-    width: 4000px;
-    z-index: -1;
-}
-
 .arrow {
     text-align: center;
     margin-top: 30px;
@@ -247,6 +276,19 @@ li a {
 
 .right:hover {
     transform: translateX(10px);
+}
+
+/* Carousel style */
+.carousel {
+    overflow: hidden;
+    height: 600px;
+}
+
+.car-row {
+    position: relative;
+    flex-direction: row;
+    width: 4000px;
+    z-index: -1;
 }
 
 /* Top 10 ---------------------------------------------------------------- END */

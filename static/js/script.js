@@ -6,6 +6,26 @@ $(document).ready(function () {
         $(".food-window").css("top", howHigh);
     }
 
+    /* Spatula icon animation */
+    $(".dropdown-toggle").click(rotateSpatula);
+
+    let rotated = false;
+    let spatulaImg = document.getElementsByClassName("spatula")[0];
+
+    function rotateSpatula() {
+        $(".dropdown-toggle").addClass("disable-click");
+        if (!rotated) {
+            spatulaImg.classList.toggle("rotate-spatula");
+            rotated = true;
+        } else {
+            spatulaImg.classList.toggle("rotate-spatula");
+            spatulaImg.classList.toggle("original-position");
+        }
+        setTimeout(function () {
+            $(".dropdown-toggle").removeClass("disable-click");
+        }, 400)
+    }
+
     /* Animate nav dropdown and disable rapid clicks */
     $(".close").click(menuToggle);
 
