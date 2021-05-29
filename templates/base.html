@@ -16,7 +16,8 @@
     <div class="pattern-backg"></div>
     <header>
         <nav class="navbar navbar-expand-md">
-            <a class="navbar-brand ms-5" href="#"><img class="logo" src="../static/img/logo.png" alt="Logo"></a>
+            <a class="navbar-brand ms-5" href="{{url_for('homepage')}}"><img class="logo" src="../static/img/logo.png"
+                    alt="Logo"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -29,7 +30,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mx-auto">
                     <li class="nav-item">
-                        <a href="#">Home</a>
+                        <a href="{{url_for('homepage')}}">Home</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class=" dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
@@ -38,7 +39,7 @@
                                 alt="Spatula">
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">Soup</a></li>
+                            <li><a class="dropdown-item" href="{{url_for('categories')}}">Soup</a></li>
                             <li><a class="dropdown-item" href="#">Pasta</a></li>
                         </ul>
                     </li>
