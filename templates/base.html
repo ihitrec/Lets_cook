@@ -53,63 +53,9 @@
         </nav>
     </header>
     <main>
-        <section class="search">
-            <div class="spinnin-food">
-                <h1>Find your <div class="food-window">
-                        <span aria-hidden="true" class="big-span">pizza <br> pasta <br> soup <br> chilli <br> hamburger
-                            <br> salad</span>
-                    </div><span class="nxt-meal">next meal</span></h1>
-                <input type="search" role="search" aria-label="Find recipes">
-            </div>
-        </section>
-        <section class="container-fluid top10">
-            <div class="row">
-                <div class="controls col-12 col-md-5 col-lg-4">
-                    <div class="container-fluid headline">
-                        <div class="row g-0">
-                            <div class="col">
-                                <div class="col" id="top">
-                                    <span>TOP</span>
-                                </div>
-                                <div class="col" id="recipes">
-                                    <span>RECIPES</span>
-                                </div>
-                            </div>
-                            <div class="col" id="ten">
-                                <span>10</span>
-                            </div>
-                        </div>
-                        <div class="row g-0">
-                            <div class="col" id="of-week">
-                                <span>of the week</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="arrow">
-                        <div class="left"><img src="../static/img/left-arrow.png" alt="Left arrow"></div>
-                        <div class="right"><img src="../static/img/right-arrow.png" alt="Right arrow"></div>
-                    </div>
-                </div>
-                <div class="carousel col-12 col-md-7 col-lg-8">
-                    <div class="row car-row">
-                        {% for i in range(1,11) %}
-                        <div style="order:{{i}};" class="col">
-                            <div class="card" style="width: 18rem;">
-                                <img src="https://images.immediate.co.uk/production/volatile/sites/30/2020/08/meatballsgarlic-bread-9245ad6.jpg?quality=90&webp=true&resize=300,272"
-                                    class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <h5 class="card-title">{{i}}</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up
-                                        the bulk of the card's content.</p>
-                                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                                </div>
-                            </div>
-                        </div>
-                        {% endfor %}
-                    </div>
-                </div>
-            </div>
-        </section>
+        {% block content %}
+
+        {% endblock %}
     </main>
     <footer>
         <div class="container-fluid">
