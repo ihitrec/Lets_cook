@@ -38,10 +38,18 @@ $(document).ready(function () {
     }
 
     /* Carousel controls */
+
+    // Keep cards centered on small screens
+    if (window.innerWidth < 481) {
+        $(".car-row").css("width", window.innerWidth * 10);
+    }
+
     let count = 0;
     let firstDiv = $(".car-row > div")[count];
     let count2 = 9;
     let lastCardOrder;
+    let leftOffset = $(".car-row").css("width")
+    leftOffset = leftOffset.slice(0, -2) / 10
 
     $(".right").click(moveLeft);
     // Move carousel left, change order of first card to last
@@ -49,8 +57,8 @@ $(document).ready(function () {
         $(".left").unbind("click");
         $(".right").unbind("click");
         $(".car-row").animate({
-            left: "-400px"
-        }, 750);
+            left: `-${leftOffset}px`
+        }, 600);
         firstDiv = $(".car-row > div")[count];
         lastCardOrder = parseInt($(".car-row > div")[count2].style.order);
         setTimeout(function () {
@@ -58,7 +66,7 @@ $(document).ready(function () {
             $(".car-row").css("left", "0");
             $(".left").click(moveRight);
             $(".right").click(moveLeft);
-        }, 800)
+        }, 650)
         if (count === 9) {
             count = 0
         } else {
@@ -79,14 +87,14 @@ $(document).ready(function () {
         lastDiv = $(".car-row > div")[count2];
         firstCardOrder = parseInt($(".car-row > div")[count].style.order);
         lastDiv.style.order = firstCardOrder - 1;
-        $(".car-row").css("left", "-400px");
+        $(".car-row").css("left", `-${leftOffset}px`);
         $(".car-row").animate({
             left: "0px"
-        }, 750);
+        }, 600);
         setTimeout(function () {
             $(".left").click(moveRight);
             $(".right").click(moveLeft);
-        }, 800)
+        }, 650)
         if (count === 0) {
             count = 9
         } else {

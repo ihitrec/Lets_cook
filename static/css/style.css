@@ -289,15 +289,24 @@ li a {
 .car-row {
     position: relative;
     flex-direction: row;
-    width: 4000px;
+    width: 3500px;
     z-index: -1;
+}
+
+.card-body span {
+    margin-right: 7px;
+    border-bottom: 2px solid gray;
+}
+
+.car-row .card {
+    height: 476px;
 }
 
 /* Top 10 ---------------------------------------------------------------- END */
 
 /* START --------------------------------------------------------------- About */
 footer {
-    margin-top: 440px;
+    margin-top: 470px;
     height: 200px;
 }
 
@@ -340,12 +349,7 @@ footer h1 {
 .connect h1 {
     display: inline-block;
     margin-right: 10px;
-}
-
-.connect>img {
-    display: inline-block;
-    width: 40px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 .social img {
@@ -364,6 +368,12 @@ footer h1 {
 /* About ----------------------------------------------------------------- END */
 
 /* START --------------------------------------------------------- Media query */
+
+@media only screen and (max-width: 480px) {
+    .car-row .card {
+        margin: 0 auto;
+    }
+}
 
 @media only screen and (max-width: 555px) {
     .food-window {
