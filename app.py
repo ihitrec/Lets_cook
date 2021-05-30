@@ -18,7 +18,12 @@ mongo = PyMongo(app)
 
 @app.route("/")
 def homepage():
-    recipes = mongo.db.recipes.find()
+    hasRating = {"$match": {"num_of_ratings": {"$gt": 0}}}
+    rating = {"$addFields": {"rating": {
+        "$divide": ["$total_rating", "$num_of_ratings"]}}}
+    sort = {"$sort": {"rating": -1}}
+    top10 = {"$limit": 10}
+    recipes = mongo.db.recipes.aggregate([hasRating, rating, sort, top10])
     return render_template("homepage.html", recipes=recipes)
 
 
