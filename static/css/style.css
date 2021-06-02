@@ -362,14 +362,12 @@ footer h1 {
     transition: all 200ms ease-out;
 }
 
-
-
-
 /* About ----------------------------------------------------------------- END */
 
 
 /* START --------------------------------------------------------- Categories */
 
+/* Filtering  */
 .filter {
     height: 100px;
     background-color: #f6f6f6;
@@ -381,6 +379,7 @@ footer h1 {
     font-size: 30px;
 }
 
+/* Category cards */
 .categories {
     margin-top: 50px;
 }
@@ -388,7 +387,13 @@ footer h1 {
 .flex {
     display: flex;
     overflow: hidden;
+    flex-wrap: no-wrap;
+}
+
+.flex-expand {
     flex-wrap: wrap;
+    justify-content: center;
+
 }
 
 .categories h1 {
@@ -407,9 +412,50 @@ footer h1 {
     min-width: 286px;
     max-width: 286px;
     margin-bottom: 45px;
-
+    height: 476px;
 }
 
+/* Expand btn */
+.expand {
+    border-radius: 20px;
+    padding: 0;
+    text-align: center;
+    height: 475px;
+    cursor: pointer;
+    max-width: 60px;
+    background-color: white;
+    box-shadow: -6px 1px 11px 2px;
+    z-index: 1;
+    opacity: .7;
+}
+
+.expand span {
+    display: inline-block;
+    width: 14px;
+    word-break: break-all;
+    font-size: 25px;
+    line-height: 27px;
+    text-transform: uppercase;
+    padding-top: 165px;
+}
+
+#span2 {
+    margin-top: -40px;
+}
+
+.hide-span {
+    display: none !important;
+}
+
+.expand img {
+    width: 22px;
+    display: block;
+    margin: 13px auto;
+}
+
+.rotate-expand {
+    transform: rotate(180deg);
+}
 
 /* Categories ----------------------------------------------------------------- END */
 
@@ -460,6 +506,30 @@ footer h1 {
             background-color: transparent;
             border-radius: none;
         }
+    }
+}
+
+@media only screen and (max-width: 575px) {
+    .expand {
+        width: 80%;
+        height: 42px;
+        max-width: initial;
+        margin: 0 auto;
+        box-shadow: 0px 0px 11px 2px;
+    }
+
+    .expand span {
+        padding-top: 0;
+        width: auto;
+        word-break: initial;
+        margin-top: 5px !important;
+
+    }
+
+    .expand img {
+        margin: 0;
+        display: initial;
+        margin-left: 5px;
     }
 }
 

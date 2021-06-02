@@ -13,7 +13,7 @@
                     {% for category in categories %}
                     <h1>{{category}}</h1>
                     <hr>
-                    <div class="col-12 flex" id="{{category}}">
+                    <div class="col-12 col-sm-11 flex" id="{{category}}">
 
                         {% for recipe in recipes %}
                         {% if category == recipe.category %}
@@ -21,12 +21,17 @@
                             <img src="{{recipe.img}}" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title">{{recipe.name}}</h5>
-                                <p class="card-text">{{recipe.description}}</p>
+                                <p class="card-text">{{recipe.description|truncate(90)}}</p>
                                 <a href="#" class="btn btn-primary">See recipe</a>
                             </div>
                         </div>
                         {% endif %}
                         {% endfor %}
+                    </div>
+                    <div class=" col-12 col-sm-1 expand">
+                        <span id="span1">expand</span>
+                        <span class="hide-span" id="span2">collapse</span>
+                        <img src="../static/img/expand.png" alt="">
                     </div>
                     {% endfor %}
                 </div>

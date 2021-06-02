@@ -48,12 +48,12 @@ $(document).ready(function () {
     let firstDiv = $(".car-row > div")[count];
     let count2 = 9;
     let lastCardOrder;
-    let leftOffset = $(".car-row").css("width")
-    leftOffset = leftOffset.slice(0, -2) / 10
 
     $(".right").click(moveLeft);
     // Move carousel left, change order of first card to last
     function moveLeft() {
+        let leftOffset = $(".car-row").css("width");
+        leftOffset = leftOffset.slice(0, -2) / 10;
         $(".left").unbind("click");
         $(".right").unbind("click");
         $(".car-row").animate({
@@ -82,6 +82,8 @@ $(document).ready(function () {
     $(".left").click(moveRight);
     //Move carousel right, change order of last card to first
     function moveRight() {
+        let leftOffset = $(".car-row").css("width");
+        leftOffset = leftOffset.slice(0, -2) / 10;
         $(".left").unbind("click");
         $(".right").unbind("click");
         lastDiv = $(".car-row > div")[count2];
@@ -105,5 +107,15 @@ $(document).ready(function () {
         } else {
             count2--;
         }
+    }
+
+    // Category expand functionality
+    $(".expand").click(expand)
+
+    function expand() {
+        $(this).prev().toggleClass("flex-expand");
+        $(this).children("img").toggleClass("rotate-expand");
+        $(this).children("span").toggleClass("hide-span");
+
     }
 });
