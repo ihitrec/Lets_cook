@@ -37,7 +37,7 @@ def homepage():
 
     if now >= lastTimeAdd7:
         mongo.db.top_weekly.delete_many({})
-        mongo.db.top_weekly.insert(recipes)
+        mongo.db.top_weekly.insert_many(recipes)
         mongo.db.top_weekly.update_many({}, {"$set": {"time": now}})
 
     recipesOfTheWeek = mongo.db.top_weekly.find()
@@ -47,7 +47,9 @@ def homepage():
 
 @app.route("/categories")
 def categories():
-    return render_template("categories.html")
+    categories = mongo.db.recipes.distinct("category")
+    recipes = mongo.db.recipes.find()
+    return render_template("categories.html", categories=categories, recipes=list(recipes))
 
 
 if __name__ == "__main__":

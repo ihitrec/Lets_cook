@@ -13,7 +13,7 @@ body {
     opacity: .25;
 }
 
-/* START ----------------------------------------------------------- Nav Style */
+/* START ----------------------------------------------------------------- Nav */
 .navbar {
     justify-content: center;
 }
@@ -121,10 +121,10 @@ li a {
     }
 }
 
-/* Nav Style ------------------------------------------------------------- END */
+/* Nav ------------------------------------------------------------------- END */
 
 
-/* START -------------------------------------------------- Hero section style */
+/* START ------------------------------------------------------- Hero section */
 .search {
     background-image: url(../img/hero.png);
     background-repeat: no-repeat;
@@ -206,7 +206,7 @@ li a {
     min-width: 162px;
 }
 
-/* Hero section style ---------------------------------------------------- END */
+/* Hero section ---------------------------------------------------------- END */
 
 /* START -------------------------------------------------------------- Top 10 */
 
@@ -366,6 +366,53 @@ footer h1 {
 
 
 /* About ----------------------------------------------------------------- END */
+
+
+/* START --------------------------------------------------------- Categories */
+
+.filter {
+    height: 100px;
+    background-color: #f6f6f6;
+    border-radius: 20px;
+    padding-left: 30px;
+}
+
+.filter h1 {
+    font-size: 30px;
+}
+
+.categories {
+    margin-top: 50px;
+}
+
+.flex {
+    display: flex;
+    overflow: hidden;
+    flex-wrap: wrap;
+}
+
+.categories h1 {
+    text-transform: capitalize;
+}
+
+.categories hr {
+    width: 96%;
+    margin-left: 2%;
+    height: 4px;
+    border-radius: 30px;
+}
+
+.flex .card {
+    margin-left: 30px;
+    min-width: 286px;
+    max-width: 286px;
+    margin-bottom: 45px;
+
+}
+
+
+/* Categories ----------------------------------------------------------------- END */
+
 
 /* START --------------------------------------------------------- Media query */
 
