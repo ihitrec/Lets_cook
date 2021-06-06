@@ -4,6 +4,7 @@ from flask import (
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from datetime import datetime, timedelta
+from werkzeug.security import generate_password_hash, check_password_hash
 if os.path.exists("env.py"):
     import env
 
@@ -49,7 +50,14 @@ def homepage():
 def categories():
     categories = mongo.db.recipes.distinct("category")
     recipes = mongo.db.recipes.find()
-    return render_template("categories.html", categories=categories, recipes=list(recipes))
+    return render_template(
+        "categories.html", categories=categories, recipes=list(recipes))
+
+
+@app.route("/recipe/<name>")
+def recipe(name):
+    recipe = mongo.db.recipes.find_one({"name": name})
+    return render_template("recipe.html", recipe=recipe)
 
 
 if __name__ == "__main__":

@@ -116,6 +116,30 @@ $(document).ready(function () {
         $(this).prev().toggleClass("flex-expand");
         $(this).children("img").toggleClass("rotate-expand");
         $(this).children("span").toggleClass("hide-span");
-
     }
+
+
+    // if ($("#rating").html() === "") {
+    //     $("#rating").append("<img src='../static/img/star-empty.png'></img>");
+    //     $("#rating").append("<img src='../static/img/star-empty.png'></img>");
+    //     $("#rating").append("<img src='../static/img/star-empty.png'></img>");
+    //     $("#rating").append("<img src='../static/img/star-empty.png'></img>");
+    //     $("#rating").append("<img src='../static/img/star-empty.png'></img>");
+    //     $("#rating img").mouseenter(function () {
+    //         changedImgs = $(this).prevAll();
+    //         for (let i = 0; i < changedImgs.length; i++) {
+    //             changedImgs[i].src = "../static/img/star-full.png";
+    //         }
+    // $(this).prevAll().src = "../static/img/star-full.png";
+    // console.log($(this).prevAll().addBack()[0].src)
+    //     })
+    //     $("#rating img").mouseleave(function () {
+    //         changedImgs = $(this).nextAll();
+    //         for (let i = 0; i < changedImgs.length; i++) {
+    //             changedImgs[i].src = "../static/img/star-empty.png";
+    //         }
+    //     })
+    // }
+    // onmouseover="this.src='LibraryHoverTrans.png';
+    // $('.some_div').append("<li class='hi'>hey!</li>");
 });

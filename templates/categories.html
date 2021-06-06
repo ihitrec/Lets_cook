@@ -22,7 +22,7 @@
                             <div class="card-body">
                                 <h5 class="card-title">{{recipe.name}}</h5>
                                 <p class="card-text">{{recipe.description|truncate(90)}}</p>
-                                <a href="#" class="btn btn-primary">See recipe</a>
+                                <a href="{{url_for('recipe', name=recipe.name)}}" class="btn btn-primary">See recipe</a>
                             </div>
                         </div>
                         {% endif %}

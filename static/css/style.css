@@ -290,7 +290,6 @@ li a {
     position: relative;
     flex-direction: row;
     width: 3500px;
-    z-index: -1;
 }
 
 .card-body span {
@@ -304,7 +303,7 @@ li a {
 
 /* Top 10 ---------------------------------------------------------------- END */
 
-/* START --------------------------------------------------------------- About */
+/* START --------------------------------------------------------------- Footer */
 footer {
     margin-top: 470px;
     height: 200px;
@@ -339,6 +338,7 @@ footer h1 {
 .about:hover>p {
     opacity: 1;
     transition: opacity 400ms;
+    cursor: none;
 }
 
 .connect {
@@ -362,7 +362,7 @@ footer h1 {
     transition: all 200ms ease-out;
 }
 
-/* About ----------------------------------------------------------------- END */
+/* Footer ----------------------------------------------------------------- END */
 
 
 /* START --------------------------------------------------------- Categories */
@@ -392,8 +392,7 @@ footer h1 {
 
 .flex-expand {
     flex-wrap: wrap;
-    justify-content: center;
-
+    justify-content: end;
 }
 
 .categories h1 {
@@ -458,6 +457,42 @@ footer h1 {
 }
 
 /* Categories ----------------------------------------------------------------- END */
+
+
+/* START --------------------------------------------------------- Recipe */
+.recipe h1 {
+    text-align: center;
+    font-weight: 300;
+}
+
+.recipe hr {
+    width: 90%;
+    margin: 0 auto;
+    height: 2px;
+}
+
+.recipe img {
+    margin: 40px auto;
+    width: 400px;
+}
+
+.recipe p {
+    font-size: 27px;
+    margin: 40px 0;
+    max-width: 400px;
+    padding-left: 10px;
+}
+
+.recipe .col-6 {
+    text-align: end;
+}
+
+#rating img {
+    width: 35px;
+}
+
+
+/* Recipe ----------------------------------------------------------------- END */
 
 
 /* START --------------------------------------------------------- Media query */

@@ -1,4 +1,19 @@
 {% extends "base.html" %}
 {% block content %}
+<section class="row recipe">
+    <div class="col-12">
+        <h1>{{recipe.name}}</h1>
+        <hr>
+    </div>
+    <div class="col-6">
+        <img src="{{recipe.img}}" alt="">
+    </div>
+    <div class="col-12 col-md-6">
+        <p>prep time: {{recipe.prep_time}}</p>
+        <p id="rating">{{recipe.rating}}</p>
+        <p>{{recipe.description}}</p>
+    </div>
+
+</section>
 
 {% endblock %}
