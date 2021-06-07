@@ -478,17 +478,27 @@ footer h1 {
 
 .recipe p {
     font-size: 27px;
-    margin: 40px 0;
     max-width: 400px;
     padding-left: 10px;
+    margin-bottom: 0px;
 }
 
 .recipe .col-6 {
     text-align: end;
 }
 
+.rec-description {
+    margin-top: 40px;
+}
+
+#rating {
+    width: fit-content;
+}
+
 #rating img {
     width: 35px;
+    margin: 0;
+    padding: 10px 8px 10px 0;
 }
 
 

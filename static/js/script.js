@@ -1,12 +1,14 @@
 $(document).ready(function () {
 
-    /* Calculate food-window position from top */
+
+    /* ----- Calculate food-window position from top ----- */
     if (window.innerWidth < 555) {
         let howHigh = $(".search").height() * 0.43 + 137
         $(".food-window").css("top", howHigh);
     }
 
-    /* Spatula icon animation */
+
+    /* ----- Spatula icon animation ----- */
     $(".dropdown-toggle").click(rotateSpatula);
 
     let rotated = false;
@@ -26,18 +28,20 @@ $(document).ready(function () {
         }, 400)
     }
 
-    /* Animate nav dropdown and disable rapid clicks */
+
+    /* ----- Animate nav dropdown and disable rapid clicks-----  */
     $(".close").click(menuToggle);
 
     function menuToggle() {
         $(".close").unbind("click");
         this.classList.toggle("close-class");
         setTimeout(function () {
-            $(".close").click(menuToggle); //Check how long bootstrap animation lasts
+            $(".close").click(menuToggle);
         }, 350)
     }
 
-    /* Carousel controls */
+
+    /* ----- Carousel controls ----- */
 
     // Keep cards centered on small screens
     if (window.innerWidth < 481) {
@@ -109,7 +113,7 @@ $(document).ready(function () {
         }
     }
 
-    // Category expand functionality
+    /* ----- Category expand functionality----- */
     $(".expand").click(expand)
 
     function expand() {
@@ -119,27 +123,72 @@ $(document).ready(function () {
     }
 
 
-    // if ($("#rating").html() === "") {
-    //     $("#rating").append("<img src='../static/img/star-empty.png'></img>");
-    //     $("#rating").append("<img src='../static/img/star-empty.png'></img>");
-    //     $("#rating").append("<img src='../static/img/star-empty.png'></img>");
-    //     $("#rating").append("<img src='../static/img/star-empty.png'></img>");
-    //     $("#rating").append("<img src='../static/img/star-empty.png'></img>");
-    //     $("#rating img").mouseenter(function () {
-    //         changedImgs = $(this).prevAll();
-    //         for (let i = 0; i < changedImgs.length; i++) {
-    //             changedImgs[i].src = "../static/img/star-full.png";
-    //         }
-    // $(this).prevAll().src = "../static/img/star-full.png";
-    // console.log($(this).prevAll().addBack()[0].src)
-    //     })
-    //     $("#rating img").mouseleave(function () {
-    //         changedImgs = $(this).nextAll();
-    //         for (let i = 0; i < changedImgs.length; i++) {
-    //             changedImgs[i].src = "../static/img/star-empty.png";
-    //         }
-    //     })
-    // }
-    // onmouseover="this.src='LibraryHoverTrans.png';
-    // $('.some_div').append("<li class='hi'>hey!</li>");
+    /* ----- Rating system ----- */
+
+    // Add star img based on rating
+    if ($("#rating").html() === "") {
+        for (let i = 0; i < 5; i++) {
+            emptyStar()
+        }
+    } else {
+        generateImages($("#rating").html())
+    }
+
+    // GenerateImages functions
+    function emptyStar() {
+        $("#rating").append("<img src='../static/img/star-empty.png'></img>");
+    }
+
+    function fullStar() {
+        $("#rating").append("<img src='../static/img/star-full.png'></img>");
+    }
+
+    function notHalfStar(x) {
+        let i = 0;
+        for (i; i < x; i++) {
+            fullStar()
+        }
+        for (i; i < 5; i++) {
+            emptyStar()
+        }
+    }
+
+    // 
+    function generateImages(n) {
+        let toNum = parseFloat(n);
+        let toNumRound = Math.round(toNum);
+        if (toNumRound < toNum) {
+            notHalfStar(toNumRound);
+        } else if (toNumRound > toNum) {
+            let i = 0;
+            for (i; i < toNumRound - 1; i++) {
+                fullStar();
+            }
+            $("#rating").append("<img src='../static/img/star-half-full.png'></img>");
+            for (i; i < 4; i++) {
+                emptyStar();
+            }
+        } else if (toNumRound === toNum) {
+            notHalfStar(toNumRound);
+        }
+    }
+
+
+    // Change star img on hover (when editing rating - will be added)
+    $("#rating img").mouseenter(function () {
+        changedImgs = $(this).prevAll().addBack();
+        for (let i = 0; i < changedImgs.length; i++) {
+            changedImgs[i].src = "../static/img/star-full.png";
+        }
+    });
+    $("#rating img").mouseleave(function () {
+        this.src = "../static/img/star-empty.png";
+    });
+    $("#rating").mouseleave(function () {
+        let allImgs = $("#rating img")
+        for (let i = 0; i < allImgs.length; i++) {
+            allImgs[i].src = "../static/img/star-empty.png";
+        }
+    });
+
 });

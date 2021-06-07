@@ -57,7 +57,8 @@ def categories():
 @app.route("/recipe/<name>")
 def recipe(name):
     recipe = mongo.db.recipes.find_one({"name": name})
-    return render_template("recipe.html", recipe=recipe)
+    rating = mongo.db.top_weekly.find_one({"name": name})
+    return render_template("recipe.html", recipe=recipe, rating=rating)
 
 
 if __name__ == "__main__":
