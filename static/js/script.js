@@ -125,6 +125,8 @@ $(document).ready(function () {
 
     /* ----- Rating system ----- */
 
+
+    $("#rating").html(parseFloat($("#rating").html()).toFixed(2));
     // Add star img based on rating
     if ($("#rating").html() === "") {
         for (let i = 0; i < 5; i++) {
@@ -133,6 +135,10 @@ $(document).ready(function () {
     } else {
         generateImages($("#rating").html());
     }
+
+    // Show original rating after stars
+    previousHTML = $("#rating").html();
+    $("#rating").html(previousHTML.substring(4) + previousHTML.substring(0, 3));
 
     // GenerateImages functions
     function emptyStar() {
@@ -200,8 +206,7 @@ $(document).ready(function () {
     }
 
 
-    // Disable hover funct until chosen by user
-
+    // Disable hover functionality until edited by user
     let previousState = $("#rating img");
 
     for (let i = 0; i < 5; i++) {
@@ -233,6 +238,7 @@ $(document).ready(function () {
         }
     }
 
+    // Change star img to full up to selected star
     $("#rating img").click(pickedRating)
 
     function pickedRating() {
@@ -241,6 +247,9 @@ $(document).ready(function () {
         let changedImgs = $(this).prevAll().addBack();
         for (let i = 0; i < changedImgs.length; i++) {
             changedImgs[i].src = "../static/img/star-full.png";
+            if (i === changedImgs.length - 1) {
+                $("input").val(i + 1)
+            }
         }
         let sameImgs = $(this).nextAll()
         for (let j = 0; j < sameImgs.length; j++) {

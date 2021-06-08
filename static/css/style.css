@@ -491,6 +491,8 @@ footer h1 {
     margin-top: 40px;
 }
 
+/* Rating */
+
 #rating {
     width: fit-content;
 }
@@ -509,6 +511,30 @@ footer h1 {
     display: none;
 }
 
+#form-rating {
+    visibility: hidden;
+}
+
+.rec-description button {
+    border: 1px solid;
+    border-radius: 5px;
+    margin-left: 10px;
+}
+
+.flashes {
+    display: inline-block;
+    width: 100%;
+}
+
+.flashes p {
+    font-size: 20px;
+    width: fit-content;
+    margin-right: 5%;
+    background-color: rgb(147, 204, 147);
+    padding: 10px;
+    float: right;
+    border-radius: 10px;
+}
 
 /* Recipe ----------------------------------------------------------------- END */
 

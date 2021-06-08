@@ -54,10 +54,23 @@ def categories():
         "categories.html", categories=categories, recipes=list(recipes))
 
 
-@app.route("/recipe/<name>")
+@app.route("/recipe/<name>", methods=["GET", "POST"])
 def recipe(name):
     recipe = mongo.db.recipes.find_one({"name": name})
     rating = mongo.db.top_weekly.find_one({"name": name})
+
+    if request.method == "POST":
+        rated = request.form.get("rated")
+        mongo.db.top_weekly.update_one({"name": name}, {"$inc": {
+            "num_of_ratings": 1, "total_rating": int(rated)}})
+        updatedRating = mongo.db.top_weekly.find_one({"name": name})
+        newRating = updatedRating["total_rating"] / updatedRating[
+            "num_of_ratings"]
+        mongo.db.top_weekly.update_one({"name": name}, {
+            "$set": {"rating": newRating}})
+        rating = mongo.db.top_weekly.find_one({"name": name})
+        flash("Rating successfully updated")
+
     return render_template("recipe.html", recipe=recipe, rating=rating)
 
 
