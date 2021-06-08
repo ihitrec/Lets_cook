@@ -501,6 +501,14 @@ footer h1 {
     padding: 10px 8px 10px 0;
 }
 
+.disable-rating-hover {
+    pointer-events: none;
+}
+
+.disable-submit {
+    display: none;
+}
+
 
 /* Recipe ----------------------------------------------------------------- END */
 

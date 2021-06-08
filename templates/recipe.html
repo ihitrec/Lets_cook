@@ -9,9 +9,10 @@
         <img src="{{recipe.img}}" alt="">
     </div>
     <div class="rec-description col-12 col-md-6">
-
         <p>Prep time: {{recipe.prep_time}}</p>
-        <p id="rating">{{rating.rating}}</p>
+        <p id="rating" class="disable-rating-hover">{{rating.rating}}</p>
+        <button class="rate">Add rating</button>
+        <button id="disable-sub" class="disable-submit">Submit</button>
         <p>{{recipe.description}}</p>
     </div>
 

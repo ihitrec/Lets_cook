@@ -131,7 +131,7 @@ $(document).ready(function () {
             emptyStar()
         }
     } else {
-        generateImages($("#rating").html())
+        generateImages($("#rating").html());
     }
 
     // GenerateImages functions
@@ -153,7 +153,7 @@ $(document).ready(function () {
         }
     }
 
-    // 
+    // Check rating and add stars, half star only if rating not round and above .5
     function generateImages(n) {
         let toNum = parseFloat(n);
         let toNumRound = Math.round(toNum);
@@ -174,21 +174,77 @@ $(document).ready(function () {
     }
 
 
-    // Change star img on hover (when editing rating - will be added)
-    $("#rating img").mouseenter(function () {
-        changedImgs = $(this).prevAll().addBack();
+    // Change star img on hover when editing rating
+    $("#rating img").mouseenter(imgEnter);
+
+    function imgEnter() {
+        let changedImgs = $(this).prevAll().addBack();
         for (let i = 0; i < changedImgs.length; i++) {
             changedImgs[i].src = "../static/img/star-full.png";
         }
-    });
-    $("#rating img").mouseleave(function () {
+    }
+
+    $("#rating img").mouseleave(imgLeave);
+
+    function imgLeave() {
         this.src = "../static/img/star-empty.png";
-    });
-    $("#rating").mouseleave(function () {
+    }
+
+    $("#rating").mouseleave(ratingLeave);
+
+    function ratingLeave() {
         let allImgs = $("#rating img")
         for (let i = 0; i < allImgs.length; i++) {
             allImgs[i].src = "../static/img/star-empty.png";
         }
-    });
+    }
 
+
+    // Disable hover funct until chosen by user
+
+    let previousState = $("#rating img");
+
+    for (let i = 0; i < 5; i++) {
+        previousState.push(previousState[i].src)
+    }
+
+    $(".rate").click(enableHov)
+    let ratingCount = 2;
+
+    function enableHov() {
+        if (ratingCount % 2 === 0) {
+            $("#rating").removeClass("disable-rating-hover");
+            for (h = 0; h < 5; h++) {
+                previousState[h].src = "../static/img/star-empty.png";
+            }
+            ratingCount++;
+            $(".rate").html("Cancel");
+        } else {
+            $("#rating").addClass("disable-rating-hover");
+            for (let i = 0, j = 5; i < 5; i++, j++) {
+                previousState[i].src = previousState[j]
+            }
+            ratingCount++;
+            $(".rate").html("Add rating");
+            $("#disable-sub").addClass("disable-submit");
+            $("#rating img").mouseenter(imgEnter);
+            $("#rating img").mouseleave(imgLeave);
+            $("#rating").mouseleave(ratingLeave);
+        }
+    }
+
+    $("#rating img").click(pickedRating)
+
+    function pickedRating() {
+        $(".rec-description *").unbind("mouseenter mouseleave");
+        $(".disable-submit").removeClass("disable-submit");
+        let changedImgs = $(this).prevAll().addBack();
+        for (let i = 0; i < changedImgs.length; i++) {
+            changedImgs[i].src = "../static/img/star-full.png";
+        }
+        let sameImgs = $(this).nextAll()
+        for (let j = 0; j < sameImgs.length; j++) {
+            sameImgs[j].src = "../static/img/star-empty.png";
+        }
+    }
 });
