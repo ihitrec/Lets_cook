@@ -491,10 +491,24 @@ footer h1 {
     margin-top: 40px;
 }
 
+.ingredients {
+    width: 70px !important;
+    position: relative;
+    bottom: 33px;
+    right: 26px;
+    float: right;
+}
+
+.prep-time {
+    max-width: 600px !important;
+}
+
 /* Rating */
 
 #rating {
     width: fit-content;
+    font-size: 20px;
+
 }
 
 #rating img {
@@ -535,6 +549,23 @@ footer h1 {
     float: right;
     border-radius: 10px;
 }
+
+/* Steps */
+
+.steps h1 {
+    font-size: 32px;
+    width: 68%;
+    margin: 0 auto;
+    text-align: start;
+    font-weight: 500;
+}
+
+.steps p {
+    max-width: 70%;
+    margin: 20px auto;
+}
+
+
 
 /* Recipe ----------------------------------------------------------------- END */
 
@@ -609,6 +640,13 @@ footer h1 {
         margin: 0;
         display: initial;
         margin-left: 5px;
+    }
+
+}
+
+@media only screen and (max-width: 715px) {
+    .flex-expand {
+        justify-content: center;
     }
 }
 
