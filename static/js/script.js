@@ -256,4 +256,16 @@ $(document).ready(function () {
             sameImgs[j].src = "../static/img/star-empty.png";
         }
     }
+
+    /* Ingredients btn functionality */
+    $(".ingredients").after($(".ingredient-list"));
+    $(".ingredients").click(showIngredients);
+
+    function showIngredients() {
+        $(".ingredient-list").toggleClass("hidden");
+        $(".ingredients").toggleClass("ingredients-img-bckg");
+
+    }
+
+
 });

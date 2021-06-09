@@ -5,7 +5,7 @@
         <h1>{{recipe.name}}</h1>
         <hr>
     </div>
-    <div class="col-6">
+    <div class="recipe-img-col col-12 col-md-6">
         <img src="{{recipe.img}}" alt="">
     </div>
     <div class="rec-description col-12 col-md-6">
@@ -14,8 +14,15 @@
         <p id="rating" class="disable-rating-hover">{{rating.rating}}</p>
         <button class="rate">Add rating</button>
         <button id="disable-sub" class="disable-submit" form="form-rating">Submit</button>
-        <p>{{recipe.description}}</p>
+        <p class="description-p">{{recipe.description}}</p>
+        <div class="ingredient-list hidden">
+            <ul>
+                {% for ingredient in recipe.ingredients %}
+                <li>{{ingredient}}</li>
+                {% endfor %}
+            </ul>
 
+        </div>
     </div>
     <div class="col-12 steps">
         <h1>Preparation instructions</h1>
