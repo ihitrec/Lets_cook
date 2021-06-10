@@ -18,6 +18,7 @@ app.secret_key = os.environ.get("SECRET_KEY")
 mongo = PyMongo(app)
 
 
+# Homepage
 @app.route("/")
 def homepage():
 
@@ -46,6 +47,7 @@ def homepage():
     return render_template("homepage.html", recipes=recipesOfTheWeek)
 
 
+#Categories
 @app.route("/categories")
 def categories():
     categories = mongo.db.recipes.distinct("category")
@@ -54,6 +56,7 @@ def categories():
         "categories.html", categories=categories, recipes=list(recipes))
 
 
+# Recipe page
 @app.route("/recipe/<name>", methods=["GET", "POST"])
 def recipe(name):
     recipe = mongo.db.recipes.find_one({"name": name})
@@ -72,6 +75,16 @@ def recipe(name):
         flash("Rating successfully updated")
 
     return render_template("recipe.html", recipe=recipe, rating=rating)
+
+
+# Log in / Register
+@app.route("/<page>", methods=['GET', 'POST'])
+def logReg(page):
+    if request.method == "POST":
+        page = request.args.get('type')
+        print(page)
+
+    return render_template("logreg.html", page=page)
 
 
 if __name__ == "__main__":

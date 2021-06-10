@@ -22,17 +22,22 @@ body {
 nav ul {
     margin: 0;
     padding-top: 10px;
+    width: 100%;
 }
 
 nav li {
     padding-top: 15px;
-    padding-right: 6vw;
 }
 
 li a {
     font-size: 35px;
     text-decoration: none;
     color: black;
+}
+
+.logreg {
+    line-height: 23px;
+    max-width: 135px;
 }
 
 .logo {
@@ -120,6 +125,21 @@ li a {
         transform: rotate(275deg);
     }
 }
+
+.logreg a {
+    font-size: 20px;
+    display: block;
+}
+
+.login {
+    border-bottom: 1px solid;
+    padding-bottom: 5px;
+}
+
+.logreg a:hover {
+    font-size: 25px;
+}
+
 
 /* Nav ------------------------------------------------------------------- END */
 
@@ -672,6 +692,15 @@ footer h1 {
 }
 
 @media only screen and (max-width: 767.9px) {
+    .logreg {
+        width: 25%;
+        margin: 0 auto;
+    }
+
+    .top10 {
+        margin-bottom: 474px;
+    }
+
     .recipe-img-col {
         text-align: center;
     }
@@ -737,10 +766,6 @@ footer h1 {
         font-size: 3.5vw;
     }
 
-    nav li {
-        padding-right: 4vw;
-    }
-
     .dropdown-toggle {
         padding-left: 0;
     }
@@ -771,9 +796,6 @@ footer h1 {
         font-size: 35px;
     }
 
-    nav li {
-        padding-right: 6vw;
-    }
 }
 
 @media only screen and (min-width: 1500px) {
@@ -781,6 +803,10 @@ footer h1 {
     li a,
     footer h1 {
         font-size: 45px;
+    }
+
+    .login {
+        margin-top: 10px;
     }
 }
 

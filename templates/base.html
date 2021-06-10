@@ -28,11 +28,11 @@
                 </div>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mx-auto">
-                    <li class="nav-item">
+                <ul class="navbar-nav">
+                    <li class="nav-item col-md-3 offset-xxl-1">
                         <a href="{{url_for('homepage')}}">Home</a>
                     </li>
-                    <li class="nav-item dropdown">
+                    <li class="nav-item dropdown col-md-3">
                         <a class=" dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
                             Recipes <img aria-hidden="true" class="spatula" src="../static/img/spatula.png"
@@ -43,11 +43,12 @@
                             <li><a class="dropdown-item" href="#">Pasta</a></li>
                         </ul>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item col-md-3">
                         <a href="#">Top 10</a>
                     </li>
-                    <li class="nav-item">
-                        <a href="#">Random recipe</a>
+                    <li class="nav-item col-md-1 logreg">
+                        <a class="login" href="{{url_for('logReg', page= 'login')}}">Login</a>
+                        <a class="register" href="{{url_for('logReg', page= 'register')}}">Register</a>
                     </li>
                 </ul>
             </div>
