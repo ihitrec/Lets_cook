@@ -6,16 +6,17 @@
         <hr>
     </div>
     <div class="recipe-img-col col-12 col-md-6">
-        <img src="{{recipe.img}}" alt="">
+        <img src="{{recipe.img}}" alt="{{recipe.name}} image">
     </div>
     <div class="rec-description col-12 col-md-6">
-        <p class="prep-time">Prep time: {{recipe.prep_time}} <img class="ingredients" src="../static/img/ingredits.png"
-                alt=""></p>
+        <p id="prep-time">Prep time: {{recipe.prep_time}} <img class="ingredients-img" src="../static/img/ingredits.png"
+                alt="ingredients icon"></p>
         <p id="rating" class="disable-rating-hover">{{rating.rating}}</p>
         <button class="rate">Add rating</button>
         <button id="disable-sub" class="disable-submit" form="form-rating">Submit</button>
         <p class="description-p">{{recipe.description}}</p>
         <div class="ingredient-list hidden">
+            <img src="../static/img/close.png" alt="close icon">
             <ul>
                 {% for ingredient in recipe.ingredients %}
                 <li>{{ingredient}}</li>

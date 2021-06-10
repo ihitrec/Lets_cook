@@ -257,15 +257,21 @@ $(document).ready(function () {
         }
     }
 
-    /* Ingredients btn functionality */
-    $(".ingredients").after($(".ingredient-list"));
-    $(".ingredients").click(showIngredients);
+    /* Ingredients open/close functionality */
+    $(".ingredients-img").after($(".ingredient-list"));
+    $(".ingredients-img").click(showIngredients);
 
     function showIngredients() {
         $(".ingredient-list").toggleClass("hidden");
-        $(".ingredients").toggleClass("ingredients-img-bckg");
+        $(".ingredients-img").toggleClass("hidden");
 
     }
 
+    $(".ingredient-list").click(hideIngredients)
+
+    function hideIngredients() {
+        $(".ingredient-list").toggleClass("hidden");
+        $(".ingredients-img").toggleClass("hidden");
+    }
 
 });

@@ -14,6 +14,7 @@ body {
 }
 
 /* START ----------------------------------------------------------------- Nav */
+
 .navbar {
     justify-content: center;
 }
@@ -43,7 +44,6 @@ li a {
 .close {
     width: 30px;
     margin: 65px auto 0;
-
 }
 
 .close hr {
@@ -125,6 +125,7 @@ li a {
 
 
 /* START ------------------------------------------------------- Hero section */
+
 .search {
     background-image: url(../img/hero.png);
     background-repeat: no-repeat;
@@ -304,6 +305,7 @@ li a {
 /* Top 10 ---------------------------------------------------------------- END */
 
 /* START --------------------------------------------------------------- Footer */
+
 footer {
     margin-top: 470px;
     height: 200px;
@@ -460,6 +462,7 @@ footer h1 {
 
 
 /* START --------------------------------------------------------- Recipe */
+
 .recipe h1 {
     text-align: center;
     font-weight: 300;
@@ -471,9 +474,17 @@ footer h1 {
     height: 2px;
 }
 
-.recipe img {
+.recipe-img-col {
+    text-align: end;
+}
+
+.recipe-img-col img {
     margin: 40px auto;
     width: 400px;
+}
+
+.rec-description {
+    margin: 40px auto;
 }
 
 .recipe p {
@@ -483,50 +494,33 @@ footer h1 {
     margin-bottom: 0px;
 }
 
-.recipe-img-col {
-    text-align: end;
+#prep-time {
+    max-width: 600px;
 }
 
-.rec-description {
-    margin-top: 40px;
-}
-
-.ingredients {
-    width: 90px !important;
-    position: relative;
-    bottom: 33px;
-    right: 26px;
+.ingredients-img {
+    width: 90px;
     float: right;
     cursor: pointer;
-}
-
-
-.prep-time {
-    max-width: 600px !important;
+    margin-right: 11%;
 }
 
 .ingredient-list {
     border: 1px solid;
     border-radius: 26px;
-    max-width: 520px;
-    margin-right: 69px;
+    max-width: 413px;
     font-size: 20px;
-}
-
-.hidden {
-    display: none;
-}
-
-.ingredients-img-bckg {
-    background-color: #f6f6f6;
 }
 
 .description-p {
     margin-top: 30px;
 }
 
-/* Rating */
+.hidden {
+    display: none;
+}
 
+/* Rating */
 #rating {
     width: fit-content;
     font-size: 20px;
@@ -565,10 +559,9 @@ footer h1 {
 .flashes p {
     font-size: 20px;
     width: fit-content;
-    margin-right: 5%;
+    margin: 20px auto;
     background-color: rgb(147, 204, 147);
     padding: 10px;
-    float: right;
     border-radius: 10px;
 }
 
@@ -579,12 +572,19 @@ footer h1 {
     width: 68%;
     text-align: start;
     font-weight: 500;
-    margin: 0 auto;
+    margin: 40px auto 20px;
 }
 
 .steps p {
     max-width: 70%;
     margin: 20px auto;
+}
+
+.ingredient-list img {
+    width: 27px;
+    margin: 10px 10px 0 0;
+    float: right;
+    cursor: pointer;
 }
 
 
@@ -683,11 +683,16 @@ footer h1 {
     .steps h1 {
         text-align: center;
         width: auto;
-        margin-top: 28px;
+        margin-top: -6px;
     }
 
-    .recipe img {
+    .rec-description {
+        width: 370px;
+    }
+
+    .recipe-img-col img {
         width: auto;
+        margin-bottom: 0;
     }
 
     .rec-description>* {
@@ -698,18 +703,20 @@ footer h1 {
         margin-left: 9%;
     }
 
-    .ingredients {
-        right: 0px;
-        width: 72px !important;
+    .ingredients-img {
+        right: 8px;
+        width: 72px;
+        margin-right: 8px;
     }
 
     .ingredient-list {
         margin-right: 0;
-        max-width: 248px;
+        max-width: 300px;
     }
 
     .recipe p {
         font-size: 23px;
+        padding-left: 0;
     }
 
     footer {
