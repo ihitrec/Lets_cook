@@ -47,7 +47,7 @@ def homepage():
     return render_template("homepage.html", recipes=recipesOfTheWeek)
 
 
-#Categories
+# Categories
 @app.route("/categories")
 def categories():
     categories = mongo.db.recipes.distinct("category")
@@ -80,9 +80,38 @@ def recipe(name):
 # Log in / Register
 @app.route("/<page>", methods=['GET', 'POST'])
 def logReg(page):
+
     if request.method == "POST":
-        page = request.args.get('type')
-        print(page)
+        if page == "register":
+            username_taken = mongo.db.users.find_one({
+                "username": request.form.get("username").lower()})
+            email_taken = mongo.db.users.find_one({
+                "email": request.form.get("email").lower()})
+
+            if username_taken and email_taken:
+                flash("Username and email already exist. "
+                      "Try logging in instead?")
+                return redirect(url_for("logReg", page="register"))
+            elif username_taken:
+                flash("Username already exists")
+                return redirect(url_for("logReg", page="register"))
+            elif email_taken:
+                flash("Email already exists")
+                return redirect(url_for("logReg", page="register"))
+
+            new_user = {
+                "name": request.form.get("name"),
+                "username": request.form.get("username"),
+                "email": request.form.get("email"),
+                "password": generate_password_hash(
+                    request.form.get("password")),
+                "rated_recipes": "",
+                "created_recipes": ""
+            }
+            mongo.db.users.insert_one(new_user)
+            session["user"] = request.form.get("username").lower()
+            flash("Registration successful")
+            return redirect(url_for("homepage"))
 
     return render_template("logreg.html", page=page)
 

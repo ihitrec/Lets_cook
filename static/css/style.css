@@ -143,6 +143,19 @@ li a {
 
 /* Nav ------------------------------------------------------------------- END */
 
+/* START ----------------------------------------------------- Login/register */
+
+.logreg-section {
+    width: 60%;
+    margin: 60px auto 40px;
+}
+
+.logreg-section h1 {
+    text-transform: capitalize;
+    margin-bottom: 15px;
+}
+
+/* Login/register ------------------------------------------------------- END */
 
 /* START ------------------------------------------------------- Hero section */
 
