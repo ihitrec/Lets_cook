@@ -35,6 +35,17 @@ li a {
     color: black;
 }
 
+.dropdown-menu {
+    background-color: #f6f6f6;
+    max-width: 200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.dropdown-menu a {
+    font-size: 25px;
+}
+
 .logreg {
     line-height: 23px;
     max-width: 135px;

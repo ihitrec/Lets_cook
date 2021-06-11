@@ -39,12 +39,12 @@
                                 alt="Spatula">
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="{{url_for('categories')}}">Soup</a></li>
-                            <li><a class="dropdown-item" href="#">Pasta</a></li>
+                            <li><a class="dropdown-item" href="{{url_for('categories')}}">Categories</a></li>
+                            <li><a class="dropdown-item" href="#">Add recipe</a> </li>
                         </ul>
                     </li>
                     <li class="nav-item col-md-3">
-                        <a href="#">Top 10</a>
+                        <a href="{{url_for('homepage', _anchor='top10')}}">Top 10</a>
                     </li>
                     <li class="nav-item col-md-1 logreg">
                         <a class="login" href="{{url_for('logReg', page= 'login')}}">Login</a>
@@ -73,7 +73,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12 col-sm-6 col-md-5 offset-md-1 about">
-                    <h1>About</h1> <img src="../static/img/down-arrow.png" alt="">
+                    <h1>About</h1> <img src="../static/img/down-arrow.png" alt="arrow pointing down">
                     <p>Discover new recipes added by the community. Step by step guidance on meal preparation and needed
                         ingredients. Have a recipe you want to add? Simply create a profile and start sharing!</p>
                 </div>
@@ -81,13 +81,15 @@
                     <h1>Connect</h1>
                     <div class="row social">
                         <div class="col-4">
-                            <a href=""><img src="../static/img/facebook.png" alt=""></a>
+                            <a href="https://www.facebook.com/"><img src="../static/img/facebook.png"
+                                    alt="facebook logo"></a>
                         </div>
                         <div class="col-4">
-                            <a href=""><img src="../static/img/instagram.png" alt=""></a>
+                            <a href="https://www.instagram.com/"><img src="../static/img/instagram.png"
+                                    alt="instagram logo"></a>
                         </div>
                         <div class="col-4">
-                            <a href=""><img src="../static/img/twitter.png" alt=""></a>
+                            <a href="https://twitter.com/"><img src="../static/img/twitter.png" alt="twitter logo"></a>
                         </div>
                     </div>
                 </div>
