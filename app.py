@@ -113,6 +113,20 @@ def logReg(page):
             flash("Registration successful")
             return redirect(url_for("homepage"))
 
+        if page == "login":
+            selected_user = mongo.db.users.find_one({"email": request.form.get(
+                "email")})
+            if selected_user:
+                if check_password_hash(
+                     selected_user["password"], request.form.get("password")):
+                    session["user"] = selected_user["username"]
+                    flash("Login successful")
+                    return redirect(url_for("homepage"))
+                else:
+                    flash("Incorrect login information")
+                    return redirect(url_for("logReg", page="login"))
+            else:
+                flash("Incorrect login information")
     return render_template("logreg.html", page=page)
 
 

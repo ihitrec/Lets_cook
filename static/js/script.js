@@ -276,8 +276,6 @@ $(document).ready(function () {
     }
 
     /* Remove flashed msg after set time */
-    setTimeout(function () {
-        $('.flashes').fadeOut(1000);
-    }, 2000)
+    $('.flashes').delay(2500).fadeOut(1000);
 
 });

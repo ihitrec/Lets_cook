@@ -6,22 +6,27 @@
         {% if page == "register" %}
         <div class="mb-3">
             <label for="name" class="form-label">Name</label>
-            <input type="text" class="form-control" name="name" id="name">
+            <input type="text" class="form-control" name="name" maxlength="30" id="name">
         </div>
         <div class="mb-3">
             <label for="username" class="form-label">Username*</label>
-            <input type="text" class="form-control" name="username" minlength="5" id="username" required>
+            <input type="text" class="form-control" name="username" minlength="5" maxlength="20" id="username" required>
         </div>
         {% endif %}
         <div class="mb-3">
             <label for="email" class="form-label">Email address{% if page == "register" %}*{% endif %}</label>
-            <input type="email" class="form-control" name="email" id="email" required>
+            <input type="email" class="form-control" name="email" id="email" maxlength="40" required>
         </div>
         <div class="mb-3">
             <label for="password" class="form-label">Password{% if page == "register" %}*{% endif %}</label>
-            <input type="password" class="form-control" name="password" id="password" minlength="8" required>
+            <input type="password" class="form-control" name="password" id="password" minlength="6" maxlength="20"
+                required>
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
+    {% if page == "register" %}
+    <p>Already have an account? <a href="{{url_for('logReg', page= 'login')}}">Log in</a> <img
+            src="../static/img/expand.png" alt=""></p>
+    {% endif %}
 </section>
 {% endblock %}

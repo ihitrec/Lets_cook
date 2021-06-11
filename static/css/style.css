@@ -147,12 +147,27 @@ li a {
 
 .logreg-section {
     width: 60%;
+    max-width: 700px;
     margin: 60px auto 40px;
 }
 
 .logreg-section h1 {
     text-transform: capitalize;
     margin-bottom: 15px;
+}
+
+.logreg-section p {
+    margin-top: 10px;
+    color: gray;
+}
+
+.logreg-section img {
+    transform: rotate(-90deg);
+    width: 11px;
+}
+
+.logreg-section p:hover>img {
+    margin-left: 3px;
 }
 
 /* Login/register ------------------------------------------------------- END */
