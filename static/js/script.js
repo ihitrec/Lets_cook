@@ -28,6 +28,14 @@ $(document).ready(function () {
         }, 400)
     }
 
+    // Disable dropdown close on body click
+    $("body").click(function (event) {
+        if ($(".spatula").hasClass("rotate-spatula") && !$(event.target).hasClass("dropdown-toggle")) {
+            setTimeout(function () {
+                $(".dropdown-menu, .dropdown-toggle").toggleClass("show")
+            }, 1)
+        }
+    })
 
     /* ----- Animate nav dropdown and disable rapid clicks-----  */
     $(".close").click(menuToggle);
