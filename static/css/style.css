@@ -13,6 +13,32 @@ body {
     opacity: .25;
 }
 
+.theme2 {
+    background-image: url("../img/pasta.png");
+    opacity: .15;
+}
+
+.theme3 {
+    background-image: url("../img/bread.png");
+    opacity: .15;
+}
+
+.theme-picker {
+    width: 55px;
+    height: 55px;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-image: url("../img/theme.png");
+    background-size: contain;
+    opacity: .6;
+}
+
+.theme-picker:hover {
+    opacity: 1;
+    cursor: pointer;
+}
+
 /* START ----------------------------------------------------------------- Nav */
 
 .navbar {

@@ -286,4 +286,24 @@ $(document).ready(function () {
     /* Remove flashed msg after set time */
     $('.flashes').delay(2500).fadeOut(1000);
 
+
+    /* Theme picker */
+    if (!localStorage.theme) {
+        localStorage.theme = 1
+    }
+
+    $(".pattern-backg").addClass(`theme${localStorage.theme}`);
+
+    $(".theme-picker").click(pickTheme);
+
+    function pickTheme() {
+        if (localStorage.theme === "3") {
+            $(".pattern-backg").removeClass("theme3")
+            return localStorage.theme = 1
+        }
+
+        $(".pattern-backg").removeClass(`theme${localStorage.theme}`)
+        localStorage.theme = parseInt(localStorage.theme) + 1;
+        $(".pattern-backg").addClass(`theme${localStorage.theme}`)
+    }
 });
