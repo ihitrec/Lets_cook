@@ -306,4 +306,35 @@ $(document).ready(function () {
         localStorage.theme = parseInt(localStorage.theme) + 1;
         $(".pattern-backg").addClass(`theme${localStorage.theme}`)
     }
+
+    /* Add/remove ingredient fields */
+
+    $("#add-ingredient").click(addIngredient)
+
+    let ingredientCount = 1;
+    let addedIngredient;
+    let lastIngredient;
+
+    function addIngredient() {
+        if (ingredientCount === 1) {
+            $("#remove-ingredient").css("display", "initial");
+        }
+        lastIngredient = $(`#ingredient${ingredientCount}`);
+        addedIngredient = `<input type="text" placeholder="${ingredientCount + 1}." class="form-control mt-1" name="ingredient${ingredientCount + 1}" id="ingredient${ingredientCount + 1}" minlength="2" maxlength="40" required>`;
+        $(lastIngredient).after(addedIngredient);
+        ingredientCount++;
+        lastIngredient = $(`#ingredient${ingredientCount}`);
+    }
+
+    $("#remove-ingredient").click(removeIngredient)
+
+    function removeIngredient() {
+        lastIngredient.remove();
+        ingredientCount--;
+        lastIngredient = $(`#ingredient${ingredientCount}`);
+        if (ingredientCount === 1) {
+            $("#remove-ingredient").css("display", "none");
+        }
+    }
+
 });
