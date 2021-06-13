@@ -414,6 +414,15 @@ li a {
 
 .car-row .card {
     height: 476px;
+    border-radius: 25px;
+}
+
+
+
+.car-row .card-img,
+.car-row .card-img-top {
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
 }
 
 /* Top 10 ---------------------------------------------------------------- END */
