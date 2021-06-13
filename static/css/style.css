@@ -196,11 +196,13 @@ li a {
     float: right;
 }
 
-.field-add {
+.field-add,
+.step-add {
     float: right;
 }
 
-#remove-ingredient {
+#remove-ingredient,
+#remove-step {
     display: none;
 }
 

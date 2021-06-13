@@ -307,8 +307,9 @@ $(document).ready(function () {
         $(".pattern-backg").addClass(`theme${localStorage.theme}`)
     }
 
-    /* Add/remove ingredient fields */
+    /* Add recipe */
 
+    // Add/remove ingredient fields
     $("#add-ingredient").click(addIngredient)
 
     let ingredientCount = 1;
@@ -336,5 +337,35 @@ $(document).ready(function () {
             $("#remove-ingredient").css("display", "none");
         }
     }
+
+    // Add/remove step fields
+    $("#add-step").click(addStep)
+
+    let stepCount = 1;
+    let addedStep;
+    let lastStep;
+
+    function addStep() {
+        if (stepCount === 1) {
+            $("#remove-step").css("display", "initial");
+        }
+        lastStep = $(`#step${stepCount}`);
+        addedStep = `<input type="text" placeholder="${stepCount + 1}." class="form-control mt-1" name="step${stepCount + 1}" id="step${stepCount + 1}" required>`;
+        $(lastStep).after(addedStep);
+        stepCount++;
+        lastStep = $(`#step${stepCount}`);
+    }
+
+    $("#remove-step").click(removeStep)
+
+    function removeStep() {
+        lastStep.remove();
+        stepCount--;
+        lastStep = $(`#step${stepCount}`);
+        if (stepCount === 1) {
+            $("#remove-step").css("display", "none");
+        }
+    }
+
 
 });
