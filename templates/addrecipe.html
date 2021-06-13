@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 <section class="add-recipe">
-    <form class="container-fluid">
+    <form class="container-fluid" method="POST">
         <div class="row">
             <div class="col-12">
                 <h1>Add recipe</h1>
@@ -14,7 +14,7 @@
             <div class="mb-3 col-6">
                 <label for="prep-time" class="form-label">Preparation time*</label>
                 <input type="text" placeholder="1 hour 25 minutes" class="form-control" name="prep-time" id="prep-time"
-                    minlength="3" maxlength="25" required>
+                    minlength="2" maxlength="25" required>
             </div>
             <div class="mb-3 col-6">
                 <label for="cook-time" class="form-label">Cooking time</label>

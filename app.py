@@ -57,9 +57,36 @@ def categories():
 
 
 # Add recipe
-@app.route("/addrecipe")
+@app.route("/addrecipe", methods=["GET", "POST"])
 def addRecipe():
     if "user" in session:
+        if request.method == "POST":
+
+            steps = []
+            for step in request.form:
+                if "step" in step:
+                    steps.append(request.form[step])
+
+            ingredients = []
+            for ingredient in request.form:
+                if "ingredient" in ingredient:
+                    ingredients.append(request.form[ingredient])
+
+            new_recipe = {
+                "name": request.form.get("recipe-name"),
+                "prep_time": request.form.get("prep-time"),
+                "cook_time": request.form.get("cook-time"),
+                "category": request.form.get("category"),
+                "img": request.form.get("img-url"),
+                "ingredients": ingredients,
+                "steps": steps,
+                "description": request.form.get("description")
+            }
+
+            mongo.db.recipes.insert_one(new_recipe)
+            flash("Recipe posted")
+            return redirect(url_for("recipe", name=new_recipe["name"]))
+
         return render_template("addrecipe.html")
     else:
         return redirect(url_for("logReg", page="register"))
@@ -117,8 +144,7 @@ def logReg(page):
                 "rated_recipes": "",
                 "created_recipes": ""
             }
-            for a in request.form:
-                print(request.form[a])
+
             mongo.db.users.insert_one(new_user)
             session["user"] = request.form.get("username").lower()
             flash("Registration successful")
