@@ -23,7 +23,8 @@ mongo = PyMongo(app)
 def homepage():
 
     # Get recipes with highest rating
-    hasRating = {"$match": {"num_of_ratings": {"$gt": 0}}}
+    hasRating = {"$match": {"$or": [{
+        "num_of_ratings": {"$gt": 0}}, {"num_of_ratings": -1}]}}
     rating = {"$addFields": {"rating": {
         "$divide": ["$total_rating", "$num_of_ratings"]}}}
     sort = {"$sort": {"rating": -1}}
@@ -50,7 +51,7 @@ def homepage():
 # Categories
 @app.route("/categories")
 def categories():
-    categories = mongo.db.recipes.distinct("category")
+    categories = ["appetizer", "main", "dessert", "other"]
     recipes = mongo.db.recipes.find()
     return render_template(
         "categories.html", categories=categories, recipes=list(recipes))
@@ -80,7 +81,10 @@ def addRecipe():
                 "img": request.form.get("img-url"),
                 "ingredients": ingredients,
                 "steps": steps,
-                "description": request.form.get("description")
+                "description": request.form.get("description"),
+                "total_rating": 0,
+                "num_of_ratings": 0,
+                "rating": 0
             }
 
             mongo.db.recipes.insert_one(new_recipe)
@@ -96,19 +100,22 @@ def addRecipe():
 @app.route("/recipe/<name>", methods=["GET", "POST"])
 def recipe(name):
     recipe = mongo.db.recipes.find_one({"name": name})
-    rating = mongo.db.top_weekly.find_one({"name": name})
-
+    rating = mongo.db.recipes.find_one({"name": name})
     if request.method == "POST":
         rated = request.form.get("rated")
-        mongo.db.top_weekly.update_one({"name": name}, {"$inc": {
-            "num_of_ratings": 1, "total_rating": int(rated)}})
-        updatedRating = mongo.db.top_weekly.find_one({"name": name})
+        num_of_ratings = 1
+        if (recipe["num_of_ratings"] < 0):
+            num_of_ratings = 2
+        mongo.db.recipes.update_one({"name": name}, {"$inc": {
+            "num_of_ratings": num_of_ratings, "total_rating": int(rated)}})
+        updatedRating = mongo.db.recipes.find_one({"name": name})
         newRating = updatedRating["total_rating"] / updatedRating[
             "num_of_ratings"]
-        mongo.db.top_weekly.update_one({"name": name}, {
+        mongo.db.recipes.update_one({"name": name}, {
             "$set": {"rating": newRating}})
-        rating = mongo.db.top_weekly.find_one({"name": name})
+        rating = mongo.db.recipes.find_one({"name": name})
         flash("Rating successfully updated")
+        return redirect(url_for("recipe", name=recipe["name"]))
 
     return render_template("recipe.html", recipe=recipe, rating=rating)
 

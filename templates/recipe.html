@@ -9,9 +9,16 @@
         <img src="{{recipe.img}}" alt="{{recipe.name}} image">
     </div>
     <div class="rec-description col-12 col-md-6">
-        <p id="prep-time">Prep time: {{recipe.prep_time}} <img class="ingredients-img" src="../static/img/ingredits.png"
-                alt="ingredients icon"></p>
-        <p id="rating" class="disable-rating-hover">{{rating.rating}}</p>
+        <p id="prep-time">
+            Prep time: {{recipe.prep_time}} {% if recipe.cook_time != "" %}, cook {{recipe.cook_time}} {% endif %}
+            <img class="ingredients-img" src="../static/img/ingredits.png" alt="ingredients icon"></p>
+        <p id="rating" class="disable-rating-hover">
+            {% if recipe.rating == -1 %}
+            0
+            {% else %}
+            {{recipe.rating}}
+            {% endif %}
+        </p>
         <button class="rate">Add rating</button>
         <button id="disable-sub" class="disable-submit" form="form-rating">Submit</button>
         <p class="description-p">{{recipe.description}}</p>
