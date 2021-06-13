@@ -56,6 +56,15 @@ def categories():
         "categories.html", categories=categories, recipes=list(recipes))
 
 
+# Add recipe
+@app.route("/addrecipe")
+def addRecipe():
+    if "user" in session:
+        return render_template("addrecipe.html")
+    else:
+        return redirect(url_for("logReg", page="register"))
+
+
 # Recipe page
 @app.route("/recipe/<name>", methods=["GET", "POST"])
 def recipe(name):
@@ -108,6 +117,8 @@ def logReg(page):
                 "rated_recipes": "",
                 "created_recipes": ""
             }
+            for a in request.form:
+                print(request.form[a])
             mongo.db.users.insert_one(new_user)
             session["user"] = request.form.get("username").lower()
             flash("Registration successful")

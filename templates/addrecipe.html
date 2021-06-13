@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="add-recipe">
+    <form class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <h1>Add recipe</h1>
+            </div>
+            <div class="mb-3 col-12">
+                <label for="recipe-name" class="form-label">Recipe name*</label>
+                <input type="text" class="form-control" name="recipe-name" id="recipe-name" minlength="2" maxlength="40"
+                    required>
+            </div>
+            <div class="mb-3 col-6">
+                <label for="prep-time" class="form-label">Preparation time*</label>
+                <input type="text" placeholder="1 hour 25 minutes" class="form-control" name="prep-time" id="prep-time"
+                    minlength="3" maxlength="25" required>
+            </div>
+            <div class="mb-3 col-6">
+                <label for="cook-time" class="form-label">Cooking time</label>
+                <input type="text" class="form-control" name="cook-time" id="cook-time" maxlength="25">
+            </div>
+            <div class="mb-3 col-12">
+                <label for="category" class="form-label">Category*</label>
+                <select class="form-control" name="category" id="category" required>
+                    <option value="">Select a category</option>
+                    <option value="appetizer">Appetizer</option>
+                    <option value="main">Main</option>
+                    <option value="dessert">Dessert</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+            <div class="mb-3 col-12">
+                <label for="img-url" class="form-label">Image URL</label>
+                <input type="text" class="form-control" name="image-url" id="image-url" aria-describedby="imgURLHelp">
+                <div id="imgURLHelp" class="form-text">Add your meal image or find one online and copy the image address
+                </div>
+
+            </div>
+            <div class="mb-3 col-12 ingredient">
+                <label for="ingredient" class="form-label">Ingredients*</label>
+                <input type="text" placeholder="1." class="form-control" name="ingredient1" id="ingredient1"
+                    minlength="2" maxlength="40" required>
+                <div class="field-add">
+                    <button type="button" class="btn btn-success btn-sm mt-2" id="add-ingredient">Add field</button>
+                    <button type="button" class="btn btn-danger btn-sm mt-2" id="remove-ingredient">Remove
+                        field</button>
+                </div>
+            </div>
+            <div class="mb-3 col-12">
+                <label for="description" class="form-label">Description</label>
+                <textarea name="description" class="form-control" id="description" maxlength="190"
+                    aria-describedby="descriptionHelp"></textarea>
+                <div id="descriptionHelp" class="form-text">Max 190 characters</div>
+            </div>
+            <button type="submit" class="btn btn-primary col-12">Submit</button>
+        </div>
+    </form>
+</section>
+
+{% endblock %}

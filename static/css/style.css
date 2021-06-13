@@ -180,6 +180,33 @@ li a {
 
 /* Nav ------------------------------------------------------------------- END */
 
+/* START ---------------------------------------------------------- Add recipe */
+
+.add-recipe form {
+    width: 60%;
+    max-width: 700px;
+    margin: 60px auto 40px;
+}
+
+.add-recipe h1 {
+    margin-bottom: 15px;
+}
+
+#descriptionHelp {
+    float: right;
+}
+
+.field-add {
+    float: right;
+}
+
+#remove-ingredient {
+    display: none;
+}
+
+/* Add recipe ----------------------------------------------------------- END */
+
+
 /* START ----------------------------------------------------- Login/register */
 
 .logreg-section {
