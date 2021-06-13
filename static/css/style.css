@@ -415,9 +415,13 @@ li a {
 .car-row .card {
     height: 476px;
     border-radius: 25px;
+    width: 286px !important;
+
 }
 
-
+.card {
+    overflow: auto;
+}
 
 .car-row .card-img,
 .car-row .card-img-top {
