@@ -174,6 +174,11 @@ def logReg(page):
     return render_template("logreg.html", page=page)
 
 
+@app.route("/profile/<username>")
+def profile(username):
+    return render_template("profile.html")
+
+
 if __name__ == "__main__":
     app.run(
         host=os.environ.get("IP"),

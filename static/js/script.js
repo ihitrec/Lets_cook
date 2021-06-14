@@ -367,5 +367,12 @@ $(document).ready(function () {
         }
     }
 
+    //Profile icon
+    $(".profile-icon").click(changeIcon)
+
+    function changeIcon(event) {
+        console.log()
+        $(".profile img").attr("src", event.target.src)
+    }
 
 });
