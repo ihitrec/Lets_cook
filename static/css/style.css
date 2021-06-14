@@ -256,6 +256,19 @@ li a {
 
 /* START ------------------------------------------------------------ Profile */
 
+#profile-page {
+    margin-top: 37px;
+}
+
+#profile-page h1 {
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+
+.icon-picker {
+    margin-left: 65px;
+}
+
 .profile-icon {
     width: 100px;
     height: 400px;
@@ -277,7 +290,6 @@ li a {
     border-radius: 70px;
     overflow: hidden;
     text-align: center;
-    margin-left: 60px;
     margin-top: 30px;
     box-shadow: 1px 1px 9px 3px gainsboro;
 }
@@ -293,6 +305,16 @@ li a {
     border-top: 44px solid #f6f6f6;
     border-bottom: 44px solid #f6f6f6;
 }
+
+.profile-details {
+    margin-left: 55px;
+}
+
+.profile-details button {
+    width: 97%;
+    margin: 0 auto;
+}
+
 
 /* Profile -------------------------------------------------------------- END */
 
@@ -924,7 +946,47 @@ footer h1 {
         margin-top: 0;
     }
 
+    .icon-picker,
+    .profile-details {
+        margin-left: 0;
+        margin-bottom: 20px;
+    }
 
+    .icon-picker {
+        width: fit-content;
+    }
+
+    .profile-details {
+        width: 90%;
+    }
+
+    #profile-page .row {
+        justify-content: center;
+    }
+
+    .hide-scroll {
+        transform: rotate(-90deg);
+        border-radius: 10px;
+        margin-top: -107px;
+        margin-bottom: -86px;
+        height: 320px;
+    }
+
+    .profile-icon {
+        border-radius: 0;
+        height: 320px;
+    }
+
+    .profile-icon img {
+        transform: rotate(90deg);
+        margin: 24px auto;
+        width: 80px;
+    }
+
+    .profile-icon::-webkit-scrollbar-thumb {
+        border: 0;
+        border-radius: 10px;
+    }
 }
 
 @media only screen and (min-width: 768px) {

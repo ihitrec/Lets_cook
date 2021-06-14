@@ -174,9 +174,11 @@ def logReg(page):
     return render_template("logreg.html", page=page)
 
 
+# Profile
 @app.route("/profile/<username>")
 def profile(username):
-    return render_template("profile.html")
+    user = mongo.db.users.find_one({"username": username})
+    return render_template("profile.html", user=user)
 
 
 if __name__ == "__main__":

@@ -1,18 +1,48 @@
 {% extends "base.html" %}
 {% block content %}
-<h1>Profile icon</h1>
-<div class="hide-scroll">
-    <div class="profile-icon">
-        <img src="../static/img/profile-icons/chef-hat.png" alt="">
-        <img src="../static/img/profile-icons/profile1.png" alt="">
-        <img src="../static/img/profile-icons/profile2.png" alt="">
-        <img src="../static/img/profile-icons/profile3.png" alt="">
-        <img src="../static/img/profile-icons/profile4.png" alt="">
-        <img src="../static/img/profile-icons/profile5.png" alt="">
-        <img src="../static/img/profile-icons/profile6.png" alt="">
-        <img src="../static/img/profile-icons/profile7.png" alt="">
-        <img src="../static/img/profile-icons/profile8.png" alt="">
-        <img src="../static/img/profile-icons/profile9.png" alt="">
+<div class="container-fluid" id="profile-page">
+    <div class="row">
+        <div class="col-md-2 icon-picker">
+            <h1>Profile icon</h1>
+            <div class="hide-scroll">
+                <div class="profile-icon">
+                    <img src="../static/img/profile-icons/profile1.png" alt="">
+                    <img src="../static/img/profile-icons/profile2.png" alt="">
+                    <img src="../static/img/profile-icons/profile3.png" alt="">
+                    <img src="../static/img/profile-icons/profile4.png" alt="">
+                    <img src="../static/img/profile-icons/profile5.png" alt="">
+                    <img src="../static/img/profile-icons/profile6.png" alt="">
+                    <img src="../static/img/profile-icons/profile7.png" alt="">
+                    <img src="../static/img/profile-icons/profile8.png" alt="">
+                    <img src="../static/img/profile-icons/profile9.png" alt="">
+                    <img src="../static/img/profile-icons/profile0.png" alt="">
+                </div>
+            </div>
+        </div>
+
+        <form class="profile-details  col-md-6 ">
+            <h1>Update details</h1>
+            <div class="row">
+                <div class="col-sm-6 mb-3">
+                    <label for="name" class="form-label">Name</label>
+                    <input type="text" value="{{user.name}}" class="form-control" name="name" maxlength="30" id="name">
+                </div>
+                <div class="col-sm-6 mb-3">
+                    <label for="username" class="form-label">Username</label>
+                    <input type="text" value="{{user.username}}" class="form-control" name="username" minlength="5" maxlength="20" id="username"
+                        required>
+                </div>
+                <div class="col-sm-6 mb-3">
+                    <label for="email" class="form-label">Email address</label>
+                    <input type="email" value="{{user.email}}" class="form-control" name="email" id="email" maxlength="40" required>
+                </div>
+                <div class="col-sm-6 mb-3">
+                    <label for="password" class="form-label">New password</label>
+                    <input type="password" class="form-control" name="password" id="password" minlength="6" maxlength="20">
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </form>
     </div>
 </div>
 {% endblock %}
