@@ -292,7 +292,6 @@ li a {
     margin-top: 20px;
     border-top: 44px solid #f6f6f6;
     border-bottom: 44px solid #f6f6f6;
-
 }
 
 /* Profile -------------------------------------------------------------- END */
@@ -497,7 +496,7 @@ footer {
 }
 
 footer h1 {
-    font-size: 35px;
+    font-size: 30px;
 }
 
 .about>* {
@@ -535,18 +534,26 @@ footer h1 {
 
 .connect h1 {
     display: inline-block;
-    margin-right: 10px;
-    margin-bottom: 20px;
+    font-size: 25px;
+    margin: 10px 0 27px;
+}
+
+.social {
+    justify-content: center;
 }
 
 .social img {
-    width: 60px;
+    width: 53px;
 }
 
 .social img:hover {
-    width: 75px;
+    width: 63px;
     margin-top: -7px;
-    transition: all 200ms ease-out;
+    transition: all 150ms ease-out;
+}
+
+.social .col-4 {
+    width: 116px;
 }
 
 /* Footer ----------------------------------------------------------------- END */
@@ -926,8 +933,7 @@ footer h1 {
         margin-left: 15px;
     }
 
-    li a,
-    footer h1 {
+    li a {
         font-size: 3.5vw;
     }
 
@@ -956,8 +962,7 @@ footer h1 {
         margin-left: 0;
     }
 
-    li a,
-    footer h1 {
+    li a {
         font-size: 35px;
     }
 
@@ -965,8 +970,7 @@ footer h1 {
 
 @media only screen and (min-width: 1500px) {
 
-    li a,
-    footer h1 {
+    li a {
         font-size: 45px;
     }
 
@@ -977,8 +981,7 @@ footer h1 {
 
 @media only screen and (min-width: 2000px) {
 
-    li a,
-    footer h1 {
+    li a {
         font-size: 2vw;
     }
 }
