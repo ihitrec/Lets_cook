@@ -954,6 +954,7 @@ footer h1 {
 
     .icon-picker {
         width: fit-content;
+        padding: 0;
     }
 
     .profile-details {
@@ -965,21 +966,20 @@ footer h1 {
     }
 
     .hide-scroll {
-        transform: rotate(-90deg);
         border-radius: 10px;
-        margin-top: -107px;
-        margin-bottom: -86px;
-        height: 320px;
+        width: 320px;
+        height: 112px;
     }
 
     .profile-icon {
         border-radius: 0;
-        height: 320px;
+        height: 100px;
+        width: 320px;
+        margin-top: 6px;
     }
 
     .profile-icon img {
-        transform: rotate(90deg);
-        margin: 24px auto;
+        margin: 8px;
         width: 80px;
     }
 
