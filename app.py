@@ -252,6 +252,7 @@ def savedPosted(savepost):
 
         for recipe in generated_recipes:
             generated_categories.append(recipe["category"])
+
         categories = set(generated_categories)
 
         if not generated_recipes:
@@ -260,10 +261,25 @@ def savedPosted(savepost):
         else:
             return render_template("categories.html", categories=categories,
                                    recipes=generated_recipes)
-
     elif savepost == "posted":
-        return render_template(
-            "categories.html", categories=categories, recipes=list(recipes))
+
+        posted_recipes = recipes["created_recipes"]
+
+        for recipe in posted_recipes:
+            generated_recipes.append(
+                mongo.db.recipes.find_one({"name": recipe}))
+
+        for recipe in generated_recipes:
+            generated_categories.append(recipe["category"])
+
+        categories = set(generated_categories)
+
+        if not posted_recipes:
+            flash("You have no posted recipes")
+            return redirect(url_for("profile", username=session["user"]))
+        else:
+            return render_template("categories.html", categories=categories,
+                                   recipes=generated_recipes)
 
 
 if __name__ == "__main__":
