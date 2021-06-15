@@ -308,6 +308,7 @@ li a {
 
 .profile-details {
     margin-left: 55px;
+    margin-top: 65px;
 }
 
 .profile-details button {
@@ -315,6 +316,25 @@ li a {
     margin: 0 auto;
 }
 
+.saved-posted {
+    margin-left: 14px;
+    text-align: center;
+    margin-top: 109px;
+}
+
+.saved-posted a {
+    text-decoration: none;
+    color: black;
+}
+
+.saved-posted img {
+    margin-top: 6px;
+    width: 100px;
+}
+
+#logout {
+    width: 39px;
+}
 
 /* Profile -------------------------------------------------------------- END */
 
@@ -801,8 +821,6 @@ footer h1 {
     cursor: pointer;
 }
 
-
-
 /* Recipe ----------------------------------------------------------------- END */
 
 
@@ -959,6 +977,7 @@ footer h1 {
 
     .profile-details {
         width: 90%;
+        margin-top: 20px;
     }
 
     #profile-page .row {
@@ -986,6 +1005,10 @@ footer h1 {
     .profile-icon::-webkit-scrollbar-thumb {
         border: 0;
         border-radius: 10px;
+    }
+
+    .saved-posted {
+        margin-top: 25px;
     }
 }
 
@@ -1028,6 +1051,9 @@ footer h1 {
         font-size: 35px;
     }
 
+    .icon-picker {
+        padding-left: 6vw;
+    }
 }
 
 @media only screen and (min-width: 1500px) {
