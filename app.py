@@ -105,25 +105,54 @@ def recipe(name):
     recipe = mongo.db.recipes.find_one({"name": name})
     rating = mongo.db.recipes.find_one({"name": name})
 
+    try:
+        if session["user"]:
+
+            saved_recipes = mongo.db.users.find_one(
+                {"username": session["user"]})
+            is_rated = saved_recipes["saved_recipes"]
+
+            if name in is_rated:
+                full_heart = True
+            else:
+                full_heart = False
+
+    except KeyError:
+        return render_template("recipe.html", recipe=recipe, rating=rating)
+
     if request.method == "POST":
+
         rated = request.form.get("rated")
         num_of_ratings = 1
+        saved = request.form.get("saved")
 
-        if (recipe["num_of_ratings"] < 0):
-            num_of_ratings = 2
-        mongo.db.recipes.update_one({"name": name}, {"$inc": {
-            "num_of_ratings": num_of_ratings, "total_rating": int(rated)}})
-        updatedRating = mongo.db.recipes.find_one({"name": name})
-        newRating = updatedRating["total_rating"] / updatedRating[
-            "num_of_ratings"]
-        mongo.db.recipes.update_one({"name": name}, {
-            "$set": {"rating": newRating}})
-        rating = mongo.db.recipes.find_one({"name": name})
-        flash("Rating successfully updated")
+        if saved is not None:
+
+            if saved == "1":
+                mongo.db.users.update_one({"username": session["user"]}, {
+                    "$push": {"saved_recipes": name}})
+            elif saved == "0":
+                mongo.db.users.update_one({"username": session["user"]}, {
+                    "$pull": {"saved_recipes": name}})
+
+        if rated is not None:
+
+            if (recipe["num_of_ratings"] < 0):
+                num_of_ratings = 2
+            mongo.db.recipes.update_one({"name": name}, {"$inc": {
+                "num_of_ratings": num_of_ratings, "total_rating": int(rated)}})
+            updatedRating = mongo.db.recipes.find_one({"name": name})
+            newRating = updatedRating["total_rating"] / updatedRating[
+                "num_of_ratings"]
+            mongo.db.recipes.update_one({"name": name}, {
+                "$set": {"rating": newRating}})
+            rating = mongo.db.recipes.find_one({"name": name})
+            flash("Rating successfully updated")
 
         return redirect(url_for("recipe", name=recipe["name"]))
 
-    return render_template("recipe.html", recipe=recipe, rating=rating)
+    return render_template(
+        "recipe.html", recipe=recipe, rating=rating, full_heart=full_heart)
 
 
 # Log in / Register
@@ -154,8 +183,8 @@ def logReg(page):
                 "email": request.form.get("email"),
                 "password": generate_password_hash(
                     request.form.get("password")),
-                "rated_recipes": "",
-                "created_recipes": ""
+                "saved_recipes": [],
+                "created_recipes": []
             }
 
             mongo.db.users.insert_one(new_user)

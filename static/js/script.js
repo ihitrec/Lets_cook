@@ -256,7 +256,7 @@ $(document).ready(function () {
             for (let i = 0; i < changedImgs.length; i++) {
                 changedImgs[i].src = "../static/img/star-full.png";
                 if (i === changedImgs.length - 1) {
-                    $("input").val(i + 1)
+                    $("#form-rating input").val(i + 1)
                 }
             }
             let sameImgs = $(this).nextAll()
@@ -371,8 +371,20 @@ $(document).ready(function () {
     $(".profile-icon").click(changeIcon)
 
     function changeIcon(event) {
-        console.log()
         $(".profile img").attr("src", event.target.src)
     }
 
+
+    //Save recipe and refresh page
+    $(".saved").click(function () {
+        if ($(this).attr("src") === "../static/img/heart-empty.png") {
+            $(this).attr("src", "../static/img/heart.png")
+            $("#form-save input").val(1);
+            $("#form-save").submit();
+        } else {
+            $(this).attr("src", "../static/img/heart-empty.png")
+            $("#form-save input").val(0);
+            $("#form-save").submit();
+        }
+    })
 });

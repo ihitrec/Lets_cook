@@ -2,7 +2,15 @@
 {% block content %}
 <section class="row recipe">
     <div class="col-12">
-        <h1>{{recipe.name}}</h1>
+        <h1>{{recipe.name}}
+            {% if session["user"] %}
+            {% if full_heart %}
+            <img class="saved" src="../static/img/heart.png" alt="save recipe icon">
+            {% else %}
+            <img class="saved" src="../static/img/heart-empty.png" alt="save recipe icon">
+            {% endif %}
+            {% endif %}
+        </h1>
         <hr>
     </div>
     <div class="recipe-img-col col-12 col-md-6">
@@ -11,7 +19,9 @@
     <div class="rec-description col-12 col-md-6">
         <p id="prep-time">
             Prep time: {{recipe.prep_time}} {% if recipe.cook_time != "" %}, cook {{recipe.cook_time}} {% endif %}
-            <img class="ingredients-img" src="../static/img/ingredits.png" alt="ingredients icon"></p>
+            <img class="ingredients-img" src="../static/img/ingredients.png" alt="ingredients icon">
+        </p>
+        {% if session["user"] %}
         <p id="rating" class="disable-rating-hover">
             {% if recipe.rating == -1 %}
             0
@@ -21,6 +31,7 @@
         </p>
         <button class="rate">Add rating</button>
         <button id="disable-sub" class="disable-submit" form="form-rating">Submit</button>
+        {% endif %}
         <p class="description-p">{{recipe.description}}</p>
         <div class="ingredient-list hidden">
             <img src="../static/img/close.png" alt="close icon">
@@ -40,6 +51,9 @@
     </div>
     <form id="form-rating" method="POST" action="{{url_for('recipe', name=recipe.name)}}">
         <input name="rated" type="number">
+    </form>
+    <form id="form-save" method="POST" action="{{url_for('recipe', name=recipe.name)}}">
+        <input name="saved" type="number">
     </form>
 </section>
 
