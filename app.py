@@ -51,6 +51,7 @@ def homepage():
 # Categories
 @app.route("/categories")
 def categories():
+
     categories = ["appetizer", "main", "dessert", "other"]
     recipes = mongo.db.recipes.find()
     return render_template(
@@ -60,6 +61,7 @@ def categories():
 # Add recipe
 @app.route("/addrecipe", methods=["GET", "POST"])
 def addRecipe():
+
     if "user" in session:
         if request.method == "POST":
 
@@ -99,11 +101,14 @@ def addRecipe():
 # Recipe page
 @app.route("/recipe/<name>", methods=["GET", "POST"])
 def recipe(name):
+
     recipe = mongo.db.recipes.find_one({"name": name})
     rating = mongo.db.recipes.find_one({"name": name})
+
     if request.method == "POST":
         rated = request.form.get("rated")
         num_of_ratings = 1
+
         if (recipe["num_of_ratings"] < 0):
             num_of_ratings = 2
         mongo.db.recipes.update_one({"name": name}, {"$inc": {
@@ -115,6 +120,7 @@ def recipe(name):
             "$set": {"rating": newRating}})
         rating = mongo.db.recipes.find_one({"name": name})
         flash("Rating successfully updated")
+
         return redirect(url_for("recipe", name=recipe["name"]))
 
     return render_template("recipe.html", recipe=recipe, rating=rating)
@@ -177,8 +183,26 @@ def logReg(page):
 # Profile
 @app.route("/profile/<username>")
 def profile(username):
-    user = mongo.db.users.find_one({"username": username})
-    return render_template("profile.html", user=user)
+
+    # Only show profile if user is logged in
+    # If profile link used in search, redirect to login
+    try:
+        if session["user"]:
+            user = mongo.db.users.find_one({"username": username})
+            return render_template("profile.html", user=user)
+        else:
+            return redirect(url_for("logReg", page="login"))
+    except KeyError:
+        return redirect(url_for("logReg", page="login"))
+
+
+# Log out
+@app.route("/homepage")
+def logOut():
+
+    session.pop("user")
+    flash("You have successfuly logged out")
+    return redirect(url_for("homepage"))
 
 
 if __name__ == "__main__":
