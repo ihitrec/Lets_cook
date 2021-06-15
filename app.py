@@ -216,7 +216,7 @@ def profile(username):
     # Only show profile if user is logged in
     # If profile link used in search, redirect to login
     try:
-        if session["user"]:
+        if session["user"] == username:
             user = mongo.db.users.find_one({"username": username})
             return render_template("profile.html", user=user)
         else:
@@ -232,6 +232,38 @@ def logOut():
     session.pop("user")
     flash("You have successfuly logged out")
     return redirect(url_for("homepage"))
+
+
+# Categories saved/posted recipes
+@app.route("/categories/<savepost>")
+def savedPosted(savepost):
+
+    recipes = mongo.db.users.find_one({"username": session["user"]})
+    generated_recipes = []
+    generated_categories = []
+
+    if savepost == "saved":
+
+        saved_recipes = recipes["saved_recipes"]
+
+        for recipe in saved_recipes:
+            generated_recipes.append(
+                mongo.db.recipes.find_one({"name": recipe}))
+
+        for recipe in generated_recipes:
+            generated_categories.append(recipe["category"])
+        categories = set(generated_categories)
+
+        if not generated_recipes:
+            flash("You have no saved recipes")
+            return redirect(url_for("profile", username=session["user"]))
+        else:
+            return render_template("categories.html", categories=categories,
+                                   recipes=generated_recipes)
+
+    elif savepost == "posted":
+        return render_template(
+            "categories.html", categories=categories, recipes=list(recipes))
 
 
 if __name__ == "__main__":

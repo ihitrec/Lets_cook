@@ -10,11 +10,10 @@
                     <h1>{{category}}</h1>
                     <hr>
                     <div class="col-12 col-sm-11 flex" id="{{category}}">
-
                         {% for recipe in recipes %}
                         {% if category == recipe.category %}
                         <div class="card" style="width: 18rem;">
-                            <img src="{{recipe.img}}" class="card-img-top" alt="...">
+                            <img src="{{recipe.img}}" class="card-img-top" alt="{{recipe.name}} image">
                             <div class="card-body">
                                 <h5 class="card-title">{{recipe.name}}</h5>
                                 <p class="card-text">{{recipe.description|truncate(90)}}</p>
