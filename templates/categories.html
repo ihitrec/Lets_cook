@@ -18,8 +18,10 @@
                                 <h5 class="card-title">{{recipe.name}}</h5>
                                 <p class="card-text">{{recipe.description|truncate(90)}}</p>
                                 <a href="{{url_for('recipe', name=recipe.name)}}" class="btn btn-primary">See recipe</a>
-                                {% if request.url_rule.endpoint == "savedPosted" %}
-                                <a href="{{url_for('editRecipe', added=recipe, edited='yes')}}" class="btn btn-success">Edit recipe</a>
+                                {% if request.path == "/categories/posted" %}
+                                <a href="{{url_for('editRecipe', name=recipe.name)}}" class="btn btn-success">Edit recipe</a>
+                                <a href="{{url_for('delete', deleted=recipe.name)}}" class="btn btn-danger mt-1 ml-auto">Delete
+                                    recipe</a>
                                 {% endif %}
                             </div>
                         </div>

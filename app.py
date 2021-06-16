@@ -105,22 +105,20 @@ def addRecipe():
                 flash("Recipe posted")
                 return redirect(url_for("recipe", name=new_recipe["name"]))
             else:
-                flash("Recipe name already exists, please update it and then submit")
-                return redirect(url_for("editRecipe", added=new_recipe, edited="no"))
+                flash("Recipe name already exists")
+                return render_template("addrecipe.html")
         return render_template("addrecipe.html")
     else:
         return redirect(url_for("logReg", page="register"))
 
 
 # Edit recipe
-@app.route("/editrecipe/", methods=["GET", "POST"])
-def editRecipe():
-    added = request.args['added']
-    added = eval(added)
-    edited = request.args['edited']
-    print(edited)
+@app.route("/editrecipe/<name>", methods=["GET", "POST"])
+def editRecipe(name):
+    values = mongo.db.recipes.find_one({"name": name})
+
     if request.method == "POST":
-        existing_recipe = mongo.db.recipes.find_one({"name": request.form.get("recipe-name")})
+
         steps = []
         for step in request.form:
             if "step" in step:
@@ -131,39 +129,18 @@ def editRecipe():
             if "ingredient" in ingredient:
                 ingredients.append(request.form[ingredient])
 
-        added = {
-                'name': request.form.get('recipe-name'),
-                'prep_time': request.form.get('prep-time'),
-                'cook_time': request.form.get('cook-time'),
-                'category': request.form.get('category'),
-                'img': request.form.get('image-url'),
-                'ingredients': ingredients,
-                'steps': steps,
-                'description': request.form.get('description'),
-                'total_rating': 0,
-                'num_of_ratings': 0,
-                'rating': 0
-                }
-        if existing_recipe is not None and edited == "no":
-            flash(
-                "Recipe name already exists, please update it and then submit")
-            return render_template("editrecipe.html", values=added)
-        else:
-            if edited == "no":
-                mongo.db.recipes.insert_one(added)
-            else:
-                mongo.db.recipes.update_one({"name": added["name"]}, {"$set": {
-                    'name': request.form.get('recipe-name'),
-                    'prep_time': request.form.get('prep-time'),
-                    'cook_time': request.form.get('cook-time'),
-                    'category': request.form.get('category'),
-                    'img': request.form.get('image-url'),
-                    'ingredients': ingredients,
-                    'steps': steps,
-                    'description': request.form.get('description')}})
-            return redirect(url_for("recipe", name=added["name"]))
-
-    return render_template("editrecipe.html", values=added)
+        mongo.db.recipes.update_one({"name": name}, {"$set": {
+            'prep_time': request.form.get('prep-time'),
+            'cook_time': request.form.get('cook-time'),
+            'category': request.form.get('category'),
+            'img': request.form.get('image-url'),
+            'ingredients': ingredients,
+            'steps': steps,
+            'description': request.form.get('description')
+        }})
+        flash("Recipe updated")
+        return redirect(url_for("recipe", name=name))
+    return render_template("editrecipe.html", values=values)
 
 
 # Recipe page
@@ -275,6 +252,17 @@ def logReg(page):
             else:
                 flash("Incorrect login information")
     return render_template("logreg.html", page=page)
+
+
+# Delete recipe
+@app.route("/deleted/<deleted>")
+def delete(deleted):
+    mongo.db.recipes.remove({"name": deleted})
+    mongo.db.users.update_one(
+                    {"username": session["user"]}, {
+                        "$pull": {"created_recipes": deleted}})
+    flash("Recipe deleted")
+    return redirect(url_for("profile", username=session["user"]))
 
 
 # Profile
