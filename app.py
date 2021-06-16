@@ -5,6 +5,8 @@ from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from datetime import datetime, timedelta
 from werkzeug.security import generate_password_hash, check_password_hash
+import ast
+import json
 if os.path.exists("env.py"):
     import env
 
@@ -65,6 +67,9 @@ def addRecipe():
     if "user" in session:
         if request.method == "POST":
 
+            already_added = mongo.db.recipes.find_one(
+                {"name": request.form.get("recipe-name")})
+
             steps = []
             for step in request.form:
                 if "step" in step:
@@ -76,26 +81,89 @@ def addRecipe():
                     ingredients.append(request.form[ingredient])
 
             new_recipe = {
-                "name": request.form.get("recipe-name"),
-                "prep_time": request.form.get("prep-time"),
-                "cook_time": request.form.get("cook-time"),
-                "category": request.form.get("category"),
-                "img": request.form.get("img-url"),
-                "ingredients": ingredients,
-                "steps": steps,
-                "description": request.form.get("description"),
-                "total_rating": 0,
-                "num_of_ratings": 0,
-                "rating": 0
-            }
+                    'name': request.form.get('recipe-name'),
+                    'prep_time': request.form.get('prep-time'),
+                    'cook_time': request.form.get('cook-time'),
+                    'category': request.form.get('category'),
+                    'img': request.form.get('image-url'),
+                    'ingredients': ingredients,
+                    'steps': steps,
+                    'description': request.form.get('description'),
+                    'total_rating': 0,
+                    'num_of_ratings': 0,
+                    'rating': 0
+                }
 
-            mongo.db.recipes.insert_one(new_recipe)
-            flash("Recipe posted")
-            return redirect(url_for("recipe", name=new_recipe["name"]))
+            if already_added is None:
 
+                mongo.db.users.update_one(
+                    {"username": session["user"]}, {
+                        "$push": {"created_recipes": new_recipe["name"]}})
+
+                mongo.db.recipes.insert_one(new_recipe)
+
+                flash("Recipe posted")
+                return redirect(url_for("recipe", name=new_recipe["name"]))
+            else:
+                flash("Recipe name already exists, please update it and then submit")
+                return redirect(url_for("editRecipe", added=new_recipe, edited="no"))
         return render_template("addrecipe.html")
     else:
         return redirect(url_for("logReg", page="register"))
+
+
+# Edit recipe
+@app.route("/editrecipe/", methods=["GET", "POST"])
+def editRecipe():
+    added = request.args['added']
+    added = eval(added)
+    edited = request.args['edited']
+    print(edited)
+    if request.method == "POST":
+        existing_recipe = mongo.db.recipes.find_one({"name": request.form.get("recipe-name")})
+        steps = []
+        for step in request.form:
+            if "step" in step:
+                steps.append(request.form[step])
+
+        ingredients = []
+        for ingredient in request.form:
+            if "ingredient" in ingredient:
+                ingredients.append(request.form[ingredient])
+
+        added = {
+                'name': request.form.get('recipe-name'),
+                'prep_time': request.form.get('prep-time'),
+                'cook_time': request.form.get('cook-time'),
+                'category': request.form.get('category'),
+                'img': request.form.get('image-url'),
+                'ingredients': ingredients,
+                'steps': steps,
+                'description': request.form.get('description'),
+                'total_rating': 0,
+                'num_of_ratings': 0,
+                'rating': 0
+                }
+        if existing_recipe is not None and edited == "no":
+            flash(
+                "Recipe name already exists, please update it and then submit")
+            return render_template("editrecipe.html", values=added)
+        else:
+            if edited == "no":
+                mongo.db.recipes.insert_one(added)
+            else:
+                mongo.db.recipes.update_one({"name": added["name"]}, {"$set": {
+                    'name': request.form.get('recipe-name'),
+                    'prep_time': request.form.get('prep-time'),
+                    'cook_time': request.form.get('cook-time'),
+                    'category': request.form.get('category'),
+                    'img': request.form.get('image-url'),
+                    'ingredients': ingredients,
+                    'steps': steps,
+                    'description': request.form.get('description')}})
+            return redirect(url_for("recipe", name=added["name"]))
+
+    return render_template("editrecipe.html", values=added)
 
 
 # Recipe page
