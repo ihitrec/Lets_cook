@@ -31,14 +31,14 @@
                 </select>
             </div>
             <div class="mb-3 col-12">
-                <label for="img-url" class="form-label">Image URL</label>
+                <label for="image-url" class="form-label">Image URL</label>
                 <input type="text" value="{{values.img}}" class="form-control" name="image-url" id="image-url" aria-describedby="imgURLHelp">
                 <div id="imgURLHelp" class="form-text">Add your meal image or find one online and copy the image address
                 </div>
 
             </div>
             <div class="mb-3 col-12">
-                <label for="ingredient" class="form-label">Ingredients*</label>
+                <label class="form-label">Ingredients*</label>
                 {% for ingredient in values.ingredients %}
                 <input type="text" value="{{ingredient}}" placeholder="1." class="form-control" name="ingredient1" id="ingredient1" minlength="2"
                     maxlength="40" required>
@@ -51,7 +51,7 @@
 
             </div>
             <div class="mb-3 col-12">
-                <label for="prep-steps" class="form-label">Preparation steps*</label>
+                <label class="form-label">Preparation steps*</label>
                 {% for step in values.steps %}
                 <input type="text" value="{{step}}" placeholder="1." class="form-control" name="step1" id="step1" required>
                 {% endfor %}
