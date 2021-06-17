@@ -100,6 +100,17 @@ Deployment instructions assume that you have already set up your repository and 
     - Go back to the deployment tab and enable automatic deployment.
     - Finally, press deploy branch and preview your website.
 
+## Commit messages
+The commit messages follow conventional commit format: **type(optional scope): description**. Here are the commit message types used in this project:  
+
+1. Fix: bug fixes
+2. Feat: new features
+3. Docs: adding content to README
+4. Style: adding comments, spaces and other style changes
+5. Refractor: editing code but not functionality e.g. renaming a variable
+
+> The first 25 commit messages do not follow the standard. I started using the new format after receiving the feedback for the previous project.
+
 ## Credits
 - All recipe images and content was taken from [BBC Good Food](https://www.bbcgoodfood.com/).  
 
