@@ -21,8 +21,21 @@ mongo = PyMongo(app)
 
 
 # Homepage
-@app.route("/")
+@app.route("/", methods=["GET", "POST"])
 def homepage():
+
+    if request.method == "POST":
+        found = mongo.db.recipes.find_one({"name": request.form.get("searched")})
+        if found is None:
+            for word in request.form.get("searched").split():
+                found = mongo.db.recipes.find_one({"name": word})
+                if found is not None:
+                    return redirect(url_for("recipe", name=found["name"]))
+            if found is None:
+                flash("No recipes found")
+                return redirect(url_for("homepage"))
+        else:
+            return redirect(url_for("recipe", name=found["name"]))
 
     # Get recipes with highest rating
     hasRating = {"$match": {"$or": [{

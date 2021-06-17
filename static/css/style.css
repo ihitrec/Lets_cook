@@ -352,6 +352,7 @@ li a {
 .spinnin-food {
     margin: 0 auto;
     padding-top: 21vw;
+    text-align: center;
 }
 
 .spinnin-food h1 {
@@ -419,6 +420,20 @@ li a {
     border: none;
     max-width: 334px;
     min-width: 162px;
+    padding-left: 18px;
+    outline: none;
+    display: inline-block;
+}
+
+.search-btn {
+    border: none;
+    background-color: transparent;
+}
+
+.search-img {
+    width: 30px;
+    display: inline-block;
+    margin-right: -30px;
 }
 
 /* Hero section ---------------------------------------------------------- END */
