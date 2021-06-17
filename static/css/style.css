@@ -408,7 +408,7 @@ li a {
     100% {
         transform: translate(-150px, 0);
         background-color: transparent;
-        border-radius: none;
+        border-radius: 0;
     }
 }
 
@@ -626,7 +626,6 @@ footer h1 {
 .flex {
     display: flex;
     overflow: hidden;
-    flex-wrap: no-wrap;
 }
 
 .flex-expand {
@@ -881,7 +880,7 @@ footer h1 {
         100% {
             transform: translate(0, 0);
             background-color: transparent;
-            border-radius: none;
+            border-radius: 0;
         }
     }
 }
