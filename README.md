@@ -4,6 +4,7 @@ Let’s cook is a website featuring recipes added by the community. It could be 
 
 This is the third project in Code Institute Full Stack Developer program based on HTML, CSS, JavaScript, Python, Flask, MongoDB and other optional frameworks and libraries.
 
+![Responsive preview](static/img/readme_images/ami-responsive.png)
 
 ## UX
 
@@ -18,33 +19,33 @@ This is the third project in Code Institute Full Stack Developer program based o
 
 ### Potential Features
 
-- Navigation
-The navigation will include a home link, category dropdown, top 10 recipes section on the homepage and a random recipe link. There will also be variable links like login/profile, add a recipe and others that will appear if the user is logged in. 
+##### Navigation
+- The navigation will include a home link, category dropdown, top 10 recipes section on the homepage and a random recipe link. There will also be variable links like login/profile, add a recipe and others that will appear if the user is logged in.
 
-- Profile
-The website will be entirely based on user submited recipes requiring an option to login/register. Each person's profile will include brief information which the user has the option to provide. The users can select a profile icon from a small icon library and possible feature of uploading an image. The profile should also include recipes that the user has saved and posted and potentialy their score based on the average rating of their posted recipes. The users should be able to update personal data or uploaded recipes as well as delete their account. 
+##### Profile
+- The website will be entirely based on user submited recipes requiring an option to login/register. Each person's profile will include brief information which the user has the option to provide. The users can select a profile icon from a small icon library and possible feature of uploading an image. The profile should also include recipes that the user has saved and posted and potentialy their score based on the average rating of their posted recipes. The users should be able to update personal data or uploaded recipes as well as delete their account. 
 
-- Homepage
-The main page will include a hero image with a recipe search bar and an animation which shows different meals. 
+##### Homepage
+- The main page will include a hero image with a recipe search bar and an animation which shows different meals. 
 
-- Top 10 Recipes
-Top recipe section will include a carousel that repeats infinitely putting the first recipe at the end when going foward and vice versa. The featured recipes will include the top rated/most popular recipes of each week.
+##### Top 10 Recipes
+- Top recipe section will include a carousel that repeats infinitely putting the first recipe at the end when going foward and vice versa. The featured recipes will include the top rated/most popular recipes of each week.
 
-- Categories
-Categories page will show recipes for each category or just the selected category depending on which path the user chooses. There should also be a filtering system allowing to filter recipes by rating and prep time.
+##### Categories
+- Categories page will show recipes for each category or just the selected category depending on which path the user chooses. There should also be a filtering system allowing to filter recipes by rating and prep time.
 
-- Chosen recipe page
-The recipe page will include all relevant information like the ingredients, preparation time and cooking steps. As additional features to better judge the quality of the recipe, there will be a comment section and rating system on the page.
+##### Chosen recipe page
+- The recipe page will include all relevant information like the ingredients, preparation time and cooking steps. As additional features to better judge the quality of the recipe, there will be a comment section and rating system on the page.
 
-- Footer
-The footer will be simple with a small about section revealing a brief description on hover.  It will also include social links and the website logo.
+##### Footer
+- The footer will be simple with a small about section revealing a brief description on hover.  It will also include social links and the website logo.
 
 ### Wireframes
 
 [Sketched wireframe](static/img/readme_images/sketch.png)
 > For this project I drew simple wireframes so it is not as detailed as it would have been in Adobe XD wich I usually use. They still give the general idea of how the webpage should look and which sections it should have.
 
-### Font and colors
+### Colors
 
 [Color palette](static/img/readme_images/palette.png)
 >The color palette is a general idea for the colors selected from the hero image. The shades and combinations can change as the image I created is just a guide of which colors could work well together.
@@ -54,7 +55,9 @@ The footer will be simple with a small about section revealing a brief descripti
 ##### Languages, frameworks and more
 ![HTML5 icon](static/img/readme_images/html-icon.png) HTML5 - webpage markup language for basic structure
 
-![CSS3 icon](static/img/readme_images/css-icon.png) CSS3 - html document styling language 
+![CSS3 icon](static/img/readme_images/css-icon.png) CSS3 - HTML document styling language 
+
+![Bootstrap icon](static/img/readme_images/bootstrap.png) Bootstrap - CSS framework with focus on responsive design
 
 ![JavaScript icon](static/img/readme_images/javascript-icon.png) JavaScript - behavior of elements on the website 
 
