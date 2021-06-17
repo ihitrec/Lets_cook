@@ -99,3 +99,8 @@ Deployment instructions assume that you have already set up your repository and 
 6.	Deploy and preview
     - Go back to the deployment tab and enable automatic deployment.
     - Finally, press deploy branch and preview your website.
+
+## Credits
+- All recipe images and content was taken from [BBC Good Food](https://www.bbcgoodfood.com/).  
+
+- All code was written by me apart from the vendor prefixes that were added using [Autoprefixer](https://autoprefixer.github.io/).  As always, I have used [StackOverflow](), [MDN Web Docs](https://developer.mozilla.org/en-US/) and [W3Schools](https://www.w3schools.com/) as a source of inspiration.
