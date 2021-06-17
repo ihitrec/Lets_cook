@@ -3,7 +3,7 @@ $(document).ready(function () {
 
     /* ----- Calculate food-window position from top ----- */
     if (window.innerWidth < 555) {
-        let howHigh = $(".search").height() * 0.43 + 137
+        let howHigh = $(".search").height() * 0.43 + 137;
         $(".food-window").css("top", howHigh);
     }
 
@@ -25,17 +25,17 @@ $(document).ready(function () {
         }
         setTimeout(function () {
             $(".dropdown-toggle").removeClass("disable-click");
-        }, 400)
+        }, 400);
     }
 
     // Disable dropdown close on body click
     $("body").click(function (event) {
         if ($(".spatula").hasClass("rotate-spatula") && !$(event.target).hasClass("dropdown-toggle")) {
             setTimeout(function () {
-                $(".dropdown-menu, .dropdown-toggle").toggleClass("show")
-            }, 1)
+                $(".dropdown-menu, .dropdown-toggle").toggleClass("show");
+            }, 1);
         }
-    })
+    });
 
     /* ----- Animate nav dropdown and disable rapid clicks-----  */
     $(".close").click(menuToggle);
@@ -45,7 +45,7 @@ $(document).ready(function () {
         this.classList.toggle("close-class");
         setTimeout(function () {
             $(".close").click(menuToggle);
-        }, 350)
+        }, 350);
     }
 
 
@@ -78,14 +78,14 @@ $(document).ready(function () {
             $(".car-row").css("left", "0");
             $(".left").click(moveRight);
             $(".right").click(moveLeft);
-        }, 650)
+        }, 650);
         if (count === 9) {
-            count = 0
+            count = 0;
         } else {
             count++;
         }
         if (count2 === 9) {
-            count2 = 0
+            count2 = 0;
         } else {
             count2++;
         }
@@ -98,8 +98,8 @@ $(document).ready(function () {
         leftOffset = leftOffset.slice(0, -2) / 10;
         $(".left").unbind("click");
         $(".right").unbind("click");
-        lastDiv = $(".car-row > div")[count2];
-        firstCardOrder = parseInt($(".car-row > div")[count].style.order);
+        let lastDiv = $(".car-row > div")[count2];
+        let firstCardOrder = parseInt($(".car-row > div")[count].style.order);
         lastDiv.style.order = firstCardOrder - 1;
         $(".car-row").css("left", `-${leftOffset}px`);
         $(".car-row").animate({
@@ -108,21 +108,21 @@ $(document).ready(function () {
         setTimeout(function () {
             $(".left").click(moveRight);
             $(".right").click(moveLeft);
-        }, 650)
+        }, 650);
         if (count === 0) {
-            count = 9
+            count = 9;
         } else {
             count--;
         }
         if (count2 === 0) {
-            count2 = 9
+            count2 = 9;
         } else {
             count2--;
         }
     }
 
     /* ----- Category expand functionality----- */
-    $(".expand").click(expand)
+    $(".expand").click(expand);
 
     function expand() {
         $(this).prev().toggleClass("flex-expand");
@@ -138,14 +138,14 @@ $(document).ready(function () {
         // Add star img based on rating
         if ($("#rating").html() === "") {
             for (let i = 0; i < 5; i++) {
-                emptyStar()
+                emptyStar();
             }
         } else {
             generateImages($("#rating").html());
         }
 
         // Show original rating after stars
-        previousHTML = $("#rating").html();
+        let previousHTML = $("#rating").html();
         $("#rating").html(previousHTML.substring(4) + previousHTML.substring(0, 3));
 
         // GenerateImages functions
@@ -160,10 +160,10 @@ $(document).ready(function () {
         function notHalfStar(x) {
             let i = 0;
             for (i; i < x; i++) {
-                fullStar()
+                fullStar();
             }
             for (i; i < 5; i++) {
-                emptyStar()
+                emptyStar();
             }
         }
 
@@ -207,7 +207,7 @@ $(document).ready(function () {
         $("#rating").mouseleave(ratingLeave);
 
         function ratingLeave() {
-            let allImgs = $("#rating img")
+            let allImgs = $("#rating img");
             for (let i = 0; i < allImgs.length; i++) {
                 allImgs[i].src = "../static/img/star-empty.png";
             }
@@ -218,16 +218,16 @@ $(document).ready(function () {
         let previousState = $("#rating img");
 
         for (let i = 0; i < 5; i++) {
-            previousState.push(previousState[i].src)
+            previousState.push(previousState[i].src);
         }
 
-        $(".rate").click(enableHov)
+        $(".rate").click(enableHov);
         let ratingCount = 2;
 
         function enableHov() {
             if (ratingCount % 2 === 0) {
                 $("#rating").removeClass("disable-rating-hover");
-                for (h = 0; h < 5; h++) {
+                for (let h = 0; h < 5; h++) {
                     previousState[h].src = "../static/img/star-empty.png";
                 }
                 ratingCount++;
@@ -235,7 +235,7 @@ $(document).ready(function () {
             } else {
                 $("#rating").addClass("disable-rating-hover");
                 for (let i = 0, j = 5; i < 5; i++, j++) {
-                    previousState[i].src = previousState[j]
+                    previousState[i].src = previousState[j];
                 }
                 ratingCount++;
                 $(".rate").html("Add rating");
@@ -247,7 +247,7 @@ $(document).ready(function () {
         }
 
         // Change star img to full up to selected star
-        $("#rating img").click(pickedRating)
+        $("#rating img").click(pickedRating);
 
         function pickedRating() {
             $(".rec-description *").unbind("mouseenter mouseleave");
@@ -256,10 +256,10 @@ $(document).ready(function () {
             for (let i = 0; i < changedImgs.length; i++) {
                 changedImgs[i].src = "../static/img/star-full.png";
                 if (i === changedImgs.length - 1) {
-                    $("#form-rating input").val(i + 1)
+                    $("#form-rating input").val(i + 1);
                 }
             }
-            let sameImgs = $(this).nextAll()
+            let sameImgs = $(this).nextAll();
             for (let j = 0; j < sameImgs.length; j++) {
                 sameImgs[j].src = "../static/img/star-empty.png";
             }
@@ -276,7 +276,7 @@ $(document).ready(function () {
 
     }
 
-    $(".ingredient-list").click(hideIngredients)
+    $(".ingredient-list").click(hideIngredients);
 
     function hideIngredients() {
         $(".ingredient-list").toggleClass("hidden");
@@ -289,7 +289,7 @@ $(document).ready(function () {
 
     /* Theme picker */
     if (!localStorage.theme) {
-        localStorage.theme = 1
+        localStorage.theme = 1;
     }
 
     $(".pattern-backg").addClass(`theme${localStorage.theme}`);
@@ -298,19 +298,20 @@ $(document).ready(function () {
 
     function pickTheme() {
         if (localStorage.theme === "3") {
-            $(".pattern-backg").removeClass("theme3")
-            return localStorage.theme = 1
+            $(".pattern-backg").removeClass("theme3");
+            localStorage.theme = 1;
+            return;
         }
 
-        $(".pattern-backg").removeClass(`theme${localStorage.theme}`)
+        $(".pattern-backg").removeClass(`theme${localStorage.theme}`);
         localStorage.theme = parseInt(localStorage.theme) + 1;
-        $(".pattern-backg").addClass(`theme${localStorage.theme}`)
+        $(".pattern-backg").addClass(`theme${localStorage.theme}`);
     }
 
     /* Add recipe */
 
     // Add/remove ingredient fields
-    $("#add-ingredient").click(addIngredient)
+    $("#add-ingredient").click(addIngredient);
 
     let ingredientCount = 1;
     let addedIngredient;
@@ -327,7 +328,7 @@ $(document).ready(function () {
         lastIngredient = $(`#ingredient${ingredientCount}`);
     }
 
-    $("#remove-ingredient").click(removeIngredient)
+    $("#remove-ingredient").click(removeIngredient);
 
     function removeIngredient() {
         lastIngredient.remove();
@@ -339,7 +340,7 @@ $(document).ready(function () {
     }
 
     // Add/remove step fields
-    $("#add-step").click(addStep)
+    $("#add-step").click(addStep);
 
     let stepCount = 1;
     let addedStep;
@@ -356,7 +357,7 @@ $(document).ready(function () {
         lastStep = $(`#step${stepCount}`);
     }
 
-    $("#remove-step").click(removeStep)
+    $("#remove-step").click(removeStep);
 
     function removeStep() {
         lastStep.remove();
@@ -367,26 +368,26 @@ $(document).ready(function () {
         }
     }
 
-    //Profile icon
-    $(".profile-icon").click(changeIcon)
+    /* Profile icon */
+    $(".profile-icon").click(changeIcon);
 
     function changeIcon(event) {
-        $(".profile img").attr("src", event.target.src)
-        $(".profile-details button").focus()
-        $("#profile-icon").val($(event.target).attr("src"))
+        $(".profile img").attr("src", event.target.src);
+        $(".profile-details button").focus();
+        $("#profile-icon").val($(event.target).attr("src"));
     }
 
 
-    //Save recipe and refresh page
+    /* Save recipe and refresh page */
     $(".saved").click(function () {
         if ($(this).attr("src") === "../static/img/heart-empty.png") {
-            $(this).attr("src", "../static/img/heart.png")
+            $(this).attr("src", "../static/img/heart.png");
             $("#form-save input").val(1);
             $("#form-save").submit();
         } else {
-            $(this).attr("src", "../static/img/heart-empty.png")
+            $(this).attr("src", "../static/img/heart-empty.png");
             $("#form-save input").val(0);
             $("#form-save").submit();
         }
-    })
+    });
 });
