@@ -229,10 +229,12 @@ def logReg(page):
                 "password": generate_password_hash(
                     request.form.get("password")),
                 "saved_recipes": [],
-                "created_recipes": []
+                "created_recipes": [],
+                "icon": "../static/img/profile-icons/profile5.png"
             }
 
             mongo.db.users.insert_one(new_user)
+            session["icon"] = "../static/img/profile-icons/profile5.png"
             session["user"] = request.form.get("username").lower()
             flash("Registration successful")
             return redirect(url_for("homepage"))
@@ -244,6 +246,7 @@ def logReg(page):
                 if check_password_hash(
                      selected_user["password"], request.form.get("password")):
                     session["user"] = selected_user["username"]
+                    session["icon"] = selected_user["icon"]
                     flash("Login successful")
                     return redirect(url_for("homepage"))
                 else:
@@ -266,8 +269,26 @@ def delete(deleted):
 
 
 # Profile
-@app.route("/profile/<username>")
+@app.route("/profile/<username>", methods=['GET', 'POST'])
 def profile(username):
+
+    if request.method == "POST":
+
+        if request.form.get("profile-icon"):
+            mongo.db.users.update_one(
+                {"username": session["user"]}, {"$set": {
+                    "icon": request.form.get("profile-icon")
+                }})
+            session["icon"] = request.form.get("profile-icon")
+
+        mongo.db.users.update_one(
+            {"username": session["user"]}, {"$set": {
+                "name": request.form.get("name"),
+                "email": request.form.get("email"),
+                "password": generate_password_hash(
+                    request.form.get("password"))
+            }})
+        flash("Profile has been updated")
 
     # Only show profile if user is logged in
     # If profile link used in search, redirect to login

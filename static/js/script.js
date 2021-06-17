@@ -372,6 +372,8 @@ $(document).ready(function () {
 
     function changeIcon(event) {
         $(".profile img").attr("src", event.target.src)
+        $(".profile-details button").focus()
+        $("#profile-icon").val($(event.target).attr("src"))
     }
 
 
