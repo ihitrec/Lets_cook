@@ -85,6 +85,8 @@ This is the third project in Code Institute Full Stack Developer program based o
 
 ## Deployment
 
+The website can be accessed [here](https://ms3-lets-cook.herokuapp.com/).
+
 Deployment instructions assume that you have already set up your repository and basic flask application. The website is deployed on the Heroku cloud platform using the following steps:
 1. Create the necessary files for deployment
     - Create requirements file using `pip3 freeze > requirements.txt` which will contain the required dependencies.
