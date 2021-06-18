@@ -2,11 +2,8 @@ import os
 from flask import (
     Flask, render_template, flash, redirect, request, session, url_for)
 from flask_pymongo import PyMongo
-from bson.objectid import ObjectId
 from datetime import datetime, timedelta
 from werkzeug.security import generate_password_hash, check_password_hash
-import ast
-import json
 if os.path.exists("env.py"):
     import env
 
