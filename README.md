@@ -19,6 +19,8 @@ This is the third project in Code Institute Full Stack Developer program based o
 
 ### Potential Features
 
+The features here are an outline of what was considered before the project started. Some of them were scrapped and some new ones were added.
+
 ##### Navigation
 - The navigation will include a home link, category dropdown, top 10 recipes section on the homepage and a random recipe link. There will also be variable links like login/profile, add a recipe and others that will appear if the user is logged in.
 
