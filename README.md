@@ -25,13 +25,13 @@ The features here are an outline of what was considered before the project start
 - The navigation will include a home link, category dropdown, top 10 recipes section on the homepage and a random recipe link. There will also be variable links like login/profile, add a recipe and others that will appear if the user is logged in.
 
 ##### Profile
-- The website will be entirely based on user submited recipes requiring an option to login/register. Each person's profile will include brief information which the user has the option to provide. The users can select a profile icon from a small icon library and possible feature of uploading an image. The profile should also include recipes that the user has saved and posted and potentialy their score based on the average rating of their posted recipes. The users should be able to update personal data or uploaded recipes as well as delete their account. 
+- The website will be entirely based on user submitted recipes requiring an option to login/register. Each person's profile will include brief information which the user has the option to provide. The users can select a profile icon from a small icon library and possible feature of uploading an image. The profile should also include recipes that the user has saved and posted and potentially their score based on the average rating of their posted recipes. The users should be able to update personal data or uploaded recipes as well as delete their account. 
 
 ##### Homepage
 - The main page will include a hero image with a recipe search bar and an animation which shows different meals. 
 
 ##### Top 10 Recipes
-- Top recipe section will include a carousel that repeats infinitely putting the first recipe at the end when going foward and vice versa. The featured recipes will include the top rated/most popular recipes of each week.
+- Top recipe section will include a carousel that repeats infinitely putting the first recipe at the end when going forward and vice versa. The featured recipes will include the top rated/most popular recipes of each week.
 
 ##### Categories
 - Categories page will show recipes for each category or just the selected category depending on which path the user chooses. There should also be a filtering system allowing to filter recipes by rating and prep time.
@@ -45,7 +45,7 @@ The features here are an outline of what was considered before the project start
 ### Wireframes
 
 [Sketched wireframe](static/img/readme_images/sketch.png)
-> For this project I drew simple wireframes so it is not as detailed as it would have been in Adobe XD wich I usually use. They still give the general idea of how the webpage should look and which sections it should have.
+> For this project I drew simple wireframes so it is not as detailed as it would have been in Adobe XD which I usually use. They still give the general idea of how the webpage should look and which sections it should have.
 
 ### Colors
 
@@ -106,7 +106,7 @@ The features here are an outline of what was considered before the project start
 
 - I want to know basic information about the recipe such as steps, ingredients and cooking time.
 
-> *All of the above information is on the recipe page as well as adittional information*
+> *All of the above information is on the recipe page as well as additional information*
 
 ### Features and tests
 
@@ -118,15 +118,15 @@ The features are listed and any unresolved bugs are highlighted darker. There ar
 
 Recipe dropdown which has links to two pages and a spatula animation.
 
-- The spatula should rotate down if the dropdown opens and up if it closes. Clicking on the body closed the dropdown but the spatula stayed in the same place. Now, a body click leaves it open and it can only be closed by clicking on the recipe. Clicking on the spatula img changed the position of the img but did not open the nav. The issue was resolved.
+- The spatula should rotate down if the dropdown opens and up if it closes. Clicking on the body closed the dropdown but the spatula stayed in the same place. Now, a body click leaves it open and it can only be closed by clicking on the recipe. Clicking on the spatula image changed the position of the image but did not open the nav. The issue was resolved.
 
-> Clicking on the body makes the dropdown flicker for a milisecond. 
+> Clicking on the body makes the dropdown flicker for a millisecond. 
 
 2. Profile icon
 
 Profile icon that can be changed by the user
 
-- Icon src loads properly. When changed by the user it gets updated to the database and loads on login.
+- Icon source loads properly. When changed by the user it gets updated to the database and loads on login.
 
 3. Login/register buttons
 
@@ -162,11 +162,11 @@ The profile can only be accessed if the username in the session matches the prof
 
 1. Icon picker
 
-Shown in a scrollable window and icons change on click, the form needs to be submitted for the icon to be saved which is not ideal but the submit button gets focused. Not picking the icon but submitting the form does not affect the icon src. 
+Shown in a scrollable window and icons change on click, the form needs to be submitted for the icon to be saved which is not ideal but the submit button gets focused. Not picking the icon but submitting the form does not affect the icon source. 
 
 2. Update details form
 
-The form is pre-filled with the information from the database. The password needs to be updated every time or the old one needs to be re-entered which is one of the UX problems. The username is locked as I have used the username instead of the user id to acces certain information. That was a mistake which caused the issues with the recipes as well but it is something that I will not repeat. Sending the details is defensively programmed same as for other forms.
+The form is pre-filled with the information from the database. The password needs to be updated every time or the old one needs to be re-entered which is one of the UX problems. The username is locked as I have used the username instead of the user id to access certain information. That was a mistake which caused the issues with the recipes as well but it is something that I will not repeat. Sending the details is defensively programmed same as for other forms.
 
 3. Saved recipes
 
@@ -194,11 +194,11 @@ Rating a recipe is available for logged in users and does not get rendered other
 
 3. Ingredients 
 
-Clicking on the ingredients button shows all ingrediens in a closable window.
+Clicking on the ingredients button shows all ingredients in a closable window.
 
 4. Adding a recipe
 
-A recipe can only be added if the user is logged in, otherwise they are redirected to the register page. Ingredient and step field can be added and show the field number. Adding the recipe name which already exist flashes a message but the fields do not stay populated. It is not a bug but it is not good from the UX side. If the recipe is added successfuly, the user is redirected to the created recipe page. 
+A recipe can only be added if the user is logged in, otherwise they are redirected to the register page. Ingredient and step field can be added and show the field number. Adding the recipe name which already exist flashes a message but the fields do not stay populated. It is not a bug but it is not good from the UX side. If the recipe is added successfully, the user is redirected to the created recipe page. 
 
 5. Editing a recipe
 
