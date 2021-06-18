@@ -162,7 +162,7 @@ li a {
     transform: rotate(170deg);
     -webkit-animation-fill-mode: forwards;
     animation-fill-mode: forwards;
-
+    pointer-events: none;
 }
 
 .original-position {
