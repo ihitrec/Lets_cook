@@ -115,6 +115,28 @@ The commit messages follow conventional commit format: **type(optional scope): d
 
 ## Testing
 
+### User stories testing
+
+- I want to be able to create an account.
+
+> *Register/ log in options are available.*
+
+- I would like to save my favourite recipes.
+
+> *There is the option to save/ unsave a recipe.*
+
+- I am looking for something to cook for my next meal.
+
+> *Unlimited number of recipes can be added by the users and the top ones are shown on the homepage. The user can also search for recipes.*
+
+- I wish to know how good a recipe is before preparing it.
+
+> *There is a rating for each recipe and an option to add a rating.*
+
+- I want to know basic information about the recipe such as steps, ingredients and cooking time.
+
+> *All of the above information is on the recipe page as well as adittional information*
+
 ### Code validation
 
 ##### HTML
@@ -137,6 +159,7 @@ Testing for desktop is done on Mozilla Firefox, Google Chrome, Microsoft Edge an
 Mobile testing is done on Samsung Internet and Google Chrome for mobile on different devices.
 
 > There are no issues or changes across browsers apart from how the scrollbar looks on Firefox which is not an issue. I do not have access to older browsers or other devices. There is a tool which has that functionality but it is not free and probably not needed for the purposes of this project.
+
 
 #### Javascript
 > [Beautify Tools](https://beautifytools.com/javascript-validator.php) validation passed with no errors
