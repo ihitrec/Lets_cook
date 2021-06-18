@@ -130,6 +130,14 @@ The mistakes that were not fixed:
 ##### CSS
 > W3C validation passed with no errors
 
+### Browser Compatibility
+
+Testing for desktop is done on Mozilla Firefox, Google Chrome, Microsoft Edge and Opera. It is not tested on Internet Explorer since the support for it is ending soon and most websites already do not support it. 
+
+Mobile testing is done on Samsung Internet and Google Chrome for mobile on different devices.
+
+> There are no issues or changes across browsers apart from how the scrollbar looks on Firefox which is not an issue. I do not have access to older browsers or other devices. There is a tool which has that functionality but it is not free and probably not needed for the purposes of this project.
+
 #### Javascript
 > [Beautify Tools](https://beautifytools.com/javascript-validator.php) validation passed with no errors
 
