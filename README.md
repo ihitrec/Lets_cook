@@ -111,6 +111,29 @@ The commit messages follow conventional commit format: **type(optional scope): d
 
 > The first 25 commit messages do not follow the standard. I started using the new format after receiving the feedback for the previous project.
 
+## Testing
+
+### Code validation
+
+##### HTML
+
+![Responsive preview](static/img/readme_images/html-validation.png)
+
+HTML validation has a lot of errors. Most of them come from Jinja syntax which should not be a problem. I have probably taken too many features to implement and should have given myself more time to fix the issues that come up during testing. As I have finished the last feature a day before submission, I had to leave some of the validation errors as they are and will explain them here.
+The mistakes that were not fixed:
+
+1. Div element is a child of the button element. I have had issues with the Bootstrap navbar close. I have decided to create my own closing icon and have therefore put it inside the button element.
+
+2. Element div not allowed as child of element h1 in this context. I had trouble getting the food window to work and it was a way that enabled me to resolve the issue.
+##### CSS
+> W3C validation passed with no errors
+
+#### Javascript
+> [Beautify Tools](https://beautifytools.com/javascript-validator.php) validation passed with no errors
+
+##### Python
+> Code is PEP8 compliant and validation shows no errors
+
 ## Credits
 - All recipe images and content was taken from [BBC Good Food](https://www.bbcgoodfood.com/).  
 
