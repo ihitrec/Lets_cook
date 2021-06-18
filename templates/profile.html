@@ -47,10 +47,12 @@
         <div class="col-md-2">
             <div class="row saved-posted">
                 <div class="col-6  col-md-12">
-                    <h1><a href="{{url_for('savedPosted', savepost= 'saved')}}">Saved recipes <img src="../static/img/heart.png" alt=""></a></h1>
+                    <h1><a href="{{url_for('savedPosted', savepost= 'saved')}}">Saved recipes <img src="../static/img/heart.png"
+                                alt="saved recipes heart"></a></h1>
                 </div>
                 <div class="col-6  col-md-12">
-                    <h1><a href="{{url_for('savedPosted', savepost= 'posted')}}">Posted recipes <img src="../static/img/edit.png" alt=""></a></h1>
+                    <h1><a href="{{url_for('savedPosted', savepost= 'posted')}}">Posted recipes <img src="../static/img/edit.png"
+                                alt="posted recipes pen"></a></h1>
                 </div>
                 <div class="col-6 col-md-12">
                     <h1><a href="{{url_for('logOut')}}">Log out<img id="logout" src="../static/img/logout.png" alt="log out icon"></a>
