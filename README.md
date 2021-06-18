@@ -79,7 +79,7 @@ This is the third project in Code Institute Full Stack Developer program based o
 #####  Resources
 - [Google Fonts](https://fonts.google.com/) - source for all fonts on the website
 - [Envato Elements](https://elements.envato.com/) - hero image source
-- [Font Awesome](https://fontawesome.com/) - used for icons
+- [Flaticon](https://www.flaticon.com/) - used for icons
 - [BBC Good Food](https://www.bbcgoodfood.com/) - recipe content
 
 
@@ -145,6 +145,8 @@ Mobile testing is done on Samsung Internet and Google Chrome for mobile on diffe
 > Code is PEP8 compliant and validation shows no errors
 
 ## Credits
-- All recipe images and content was taken from [BBC Good Food](https://www.bbcgoodfood.com/).  
+- All recipe images and content was taken from [BBC Good Food](https://www.bbcgoodfood.com/).
 
-- All code was written by me apart from the vendor prefixes that were added using [Autoprefixer](https://autoprefixer.github.io/).  As always, I have used [StackOverflow](), [MDN Web Docs](https://developer.mozilla.org/en-US/) and [W3Schools](https://www.w3schools.com/) as a source of inspiration.
+- All icons and images from Flaticon and Envato elements have been licenced.
+
+- All code was written by me apart from the vendor prefixes that were added using [Autoprefixer](https://autoprefixer.github.io/).  As always, I have used [StackOverflow](https://stackoverflow.com/), [MDN Web Docs](https://developer.mozilla.org/en-US/) and [W3Schools](https://www.w3schools.com/) as a source of inspiration.
